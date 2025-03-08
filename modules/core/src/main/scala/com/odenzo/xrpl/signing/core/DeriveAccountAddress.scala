@@ -8,8 +8,11 @@ import cats.effect.syntax.all.*
 import cats.*
 import cats.data.*
 import cats.syntax.all.*
+import com.tersesystems.blindsight.LoggerFactory
 
 object DeriveAccountAddress extends XrpBinaryOps {
+
+  private val log = LoggerFactory.getLogger
 
   /**
     * Given as a Public Key adds prefix and XRP checksum.
@@ -21,8 +24,9 @@ object DeriveAccountAddress extends XrpBinaryOps {
     *   Ripple Account Address Base58 encoded with leading r and checksummed.
     */
   def accountPublicKey2address(publicKey: AccountPublicKey): IO[AccountAddress] = {
-    import AccountPublicKey.*
-    val publicKeyBytes        = publicKey.asFullBytes
+    import AccountPublicKey.* // Needed to get the extensions unfortunaltey, and its not named.
+    val publicKeyBytes        = publicKey.coreBytes
+    assert(publicKeyBytes.size == 33L, "Public Key must be 33 bytes")
     val accountId: ByteVector = ripemd160(sha256(publicKeyBytes))
     val body: ByteVector      = accountPrefix ++ accountId
     val bytes: ByteVector     = body ++ xrpChecksum(body)

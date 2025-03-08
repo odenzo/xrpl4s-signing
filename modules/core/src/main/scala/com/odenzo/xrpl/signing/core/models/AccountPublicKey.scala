@@ -27,6 +27,7 @@ object AccountPublicKey {
 
   extension (apk: AccountPublicKey)
     def asFullBytes: ByteVector = apk
+    def coreBytes: ByteVector   = apk.drop(1).dropRight(4)
 
     /**
       * Returns 32 or 33 byte with no prefix. Strips 0xED from 33 bytes ti form
