@@ -3,34 +3,35 @@ package com.odenzo.xrpl.signing.common.binary
 import com.odenzo.xrpl.signing.common.utils.*
 import com.odenzo.xrpl.signing.common.utils.MyLogging
 import com.tersesystems.blindsight.LoggerFactory
-import io.circe.{Decoder, Encoder}
+import io.circe.{ Decoder, Encoder }
 import org.bouncycastle.jce.provider.BouncyCastleProvider
 import org.bouncycastle.util.BigIntegers
 import scodec.bits.Bases.Alphabet
 import scodec.bits.Bases.Alphabets.*
-import scodec.bits.{BitVector, ByteVector, hex}
+import scodec.bits.{ BitVector, ByteVector, hex }
 
 import java.math.BigInteger
 import java.nio.charset.StandardCharsets
-import java.security.{MessageDigest, Provider, SecureRandom, Security}
+import java.security.{ MessageDigest, Provider, SecureRandom, Security }
 import scala.annotation.tailrec
 import scala.quoted.ToExpr.ArrayOfByteToExpr
 import scala.util.Try
 
 /** XrpSpecific and General Binary Ops, including some Bouncy Castle ops */
-trait XrpBinaryOps extends MyLogging with HashOps {
+trait XrpBinaryOps extends MyLogging {
   private val log                         = LoggerFactory.getLogger
   private val sha256Digest: MessageDigest = MessageDigest.getInstance("SHA-256")
   Security.addProvider(new BouncyCastleProvider)
   val provider: Provider                  = Security.getProvider("BC")
 
+  // These are defined elsewhere, and should be removed
   val accountPrefix          = hex"00"
   val publicKeyPrefix        = hex"23"
   val seedValuePrefix        = hex"21"
   val validationPubKeyPrefix = hex"1C"
 
   export ByteVector.given
-  val secureRandom = SecureRandom.getInstanceStrong
+  val secureRandom: SecureRandom = SecureRandom.getInstanceStrong
 
   /**
     * Given an unsigned (?) integer in as bytes convert to a BigInt for use in
@@ -172,7 +173,7 @@ trait XrpBinaryOps extends MyLogging with HashOps {
   def asLong(u: ByteVector): Option[Long] = Option.when(asBigInt(u).isValidLong)(u.toLong(false))
 
   def fromXrpBase58(b58: String): Either[String, ByteVector] =
-    XrpBase58Fix.fromXrpBase58Descriptive(b58)
+    XrpBase58.fromXrpBase58Descriptive(b58)
 
   def fromXrpBase58Unsafe(b58: String): ByteVector =
     fromXrpBase58(b58) match
@@ -181,7 +182,7 @@ trait XrpBinaryOps extends MyLogging with HashOps {
 
   /** These might beed fixing for leading 'r' (0 decimal) values */
   inline def toXrpBase58(input: IterableOnce[Byte]): String = toXrpBase58(ByteVector(input))
-  inline def toXrpBase58(bv: ByteVector): String            = XrpBase58Fix.toXrpBase58(bv)
+  inline def toXrpBase58(bv: ByteVector): String            = XrpBase58.toXrpBase58(bv)
 
   import io.circe.*
   import cats.syntax.all.*

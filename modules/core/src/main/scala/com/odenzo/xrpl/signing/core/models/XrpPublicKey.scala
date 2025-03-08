@@ -1,46 +1,45 @@
 package com.odenzo.xrpl.signing.core.models
 
-import cats.data.Validated
-import com.odenzo.xrpl.signing.common.binary.{ XrpBase58Fix, XrpBinaryOps }
 import com.odenzo.xrpl.signing.common.utils.CirceCodecUtils
-import io.circe.{ Codec, Decoder, Encoder }
-import scodec.bits.ByteVector.*
+import io.circe.Codec
 import scodec.bits.{ ByteVector, hex }
-import scodec.given
 
 /**
-  * Supports secp or ed25519 key types. secp is 33 bytes, and ed25519 is 32
-  * bytes normalized to 33 by prepended 0xED
+  * We just store the raw public key here, and serialize with the type prefix
+  * The raw key is prefixed with 0xED if its ed25519 or nothing if its secp The
+  * raw key has no field prefix or checksum (until its encoded). But hex"ED" is
+  * added. For some core operations this needs to be stripped, but Address is
+  * calculated with it.
   */
 opaque type XrpPublicKey = ByteVector
 
-object XrpPublicKey extends XrpBinaryOps:
+object XrpPublicKey {
+  val typePrefix = hex"23"
+
+  given Codec[XrpPublicKey] = CirceCodecUtils.xrpBase58Codec
 
   /**
-    * Expect a 33 byte secp256k1 or prefixed 0xED ed25519 key. 32 byte keys are
-    * assumed to be ed25519 and 0xED prefix is added
+    * Package a raw public key in 33 bytes compressed form into wrapped,
+    * serializable with the type prefix. If its 32 bytes its assumed to be an
+    * ed25519 key and 0xED is added
     */
-  def fromBytesUnsafe(bv: ByteVector): XrpPublicKey = {
-    bv.size match
-      case 33       => bv
-      case 32       => hex"ED" ++ bv
-      case otherLen => throw IllegalArgumentException(s"Invalid Size: $otherLen not 32 or 33")
-  }
-  def fromHexUnsafe(hex: String): XrpPublicKey      = fromBytesUnsafe(ByteVector.fromValidHex(hex))
+  def fromBytesUnsafe(b: ByteVector): XrpPublicKey =
+    if b.size == 33 then b
+    else if b.size == 32 then hex"ED" ++ b
+    else throw IllegalArgumentException(s"AccountPublicKey size ${b.size} not in (32,33)")
 
-  /** This doesn't seem to be picked automatically and needs import? */
-  extension (ms: XrpPublicKey)
-    def bv: ByteVector       = ms
-    def asHex: String        = ms.toHex
-    def base58: String       = XrpBase58Fix.toXrpBase58(ms: ByteVector)
-    def isEd25519: Boolean   = ms.head == 0xed
-    def isSecp256k1: Boolean = !isEd25519
+  extension (apk: XrpPublicKey)
+    /** @returns Full 33 byte key, including the 0xED for ED25519 */
+    def asFullBytes: ByteVector = apk
 
-  def validated(ms: XrpPublicKey): Validated[String, XrpPublicKey] = {
-    cats.data.Validated.cond(ms.size > 0, ms, s"XrpPublicKey cannot be zero length")
-  }
-
-  object Codecs:
-    given base58Codec: Codec[XrpPublicKey] = CirceCodecUtils.xrpBase58Codec
-
-end XrpPublicKey
+    /**
+      * @return
+      *   33 bytes of raw secp public key or 32 bytes of raw ed25519 key
+      *   (stripping away 0xED first byte)
+      */
+    def asRawKey: ByteVector =
+      apk.size match
+        case 33 if apk.head == 0xed => apk.drop(1)
+        case 33                     => apk
+        case other                  => throw IllegalStateException(s"Malformed AccountPublicKey: $apk")
+}

@@ -1,9 +1,9 @@
-package com.odenzo.xrpl.signing.core.seeds
+package com.odenzo.xrpl.signing.core
 
 import cats.effect.IO
 import com.odenzo.xrpl.signing.common.utils.MyLogging
 import com.odenzo.xrpl.signing.core.DeriveAccountAddress
-import com.odenzo.xrpl.signing.core.models.{ AccountAddress, AccountPublicKey, WalletProposeResult, XrpSeed }
+import com.odenzo.xrpl.signing.core.models.{ AccountAddress, WalletProposeResult, XrpPublicKey, XrpSeed }
 import com.odenzo.xrpl.signing.core.seeds.{ RFC1751Keys, SeedOps }
 import com.odenzo.xrpl.signing.testkit.WalletTestIOSpec
 import com.tersesystems.blindsight.LoggerFactory
@@ -17,9 +17,7 @@ class DeriveAccountAddressTest extends WalletTestIOSpec {
   import XrpSeed.asRawSeed // Extension method
   def check(walletRs: WalletProposeResult)(using loc: munit.Location): Unit = {
     test(s"${walletRs.account_id} - ${walletRs.key_type}") {
-      val publicKey: AccountPublicKey = walletRs.public_key
-      val masterSeedHex: String       = walletRs.master_seed_hex
-
+      val publicKey: XrpPublicKey      = walletRs.public_key
       val computed: IO[AccountAddress] = DeriveAccountAddress.accountPublicKey2address(publicKey)
       assertIO(computed, walletRs.account_id) // This is really AccountAddress (prefix and checksummed)
 

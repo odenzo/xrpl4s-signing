@@ -3,7 +3,7 @@ package com.odenzo.xrpl.signing.core.models
 import cats.*
 import cats.data.*
 import cats.syntax.all.*
-import com.odenzo.xrpl.signing.common.binary.{ FixedSizeBinary, XrpBase58Fix }
+import com.odenzo.xrpl.signing.common.binary.{ FixedSizeBinary, XrpBase58 }
 import com.odenzo.xrpl.signing.common.utils.CirceCodecUtils
 import com.odenzo.xrpl.signing.core.constants.TypePrefix
 import io.circe.Decoder.{ Result, fromState }
@@ -28,7 +28,7 @@ opaque type AccountAddress = BitVector
 
 object AccountAddress:
   private val totalLen       = 1 + 20 + 4 // Bytes
-  val typePrefix: TypePrefix = TypePrefix.AccountAddress
+  val typePrefix: TypePrefix = TypePrefix.AccountAddressPrefix
 
   given FixedSizeBinary[AccountAddress](25 * 8) with {
     def fromBits(bits: BitVector): AccountAddress = bits
@@ -40,7 +40,9 @@ object AccountAddress:
     * at all for now
     */
   def fromRawBytes(b: ByteVector): Either[String, AccountAddress] = Right(b.bits: AccountAddress)
-  def fromAccountAddressB58Unsafe(s: String): AccountAddress      = XrpBase58Fix.fromValidXrpBase58(s).bits
+  def fromAccountAddressB58Unsafe(s: String): AccountAddress      = XrpBase58.fromValidXrpBase58(s).bits
+
+  given Show[AccountAddress] = Show.show[AccountAddress](aa => XrpBase58.toXrpBase58(aa.bytes))
 
   /**
     * In this base the r are dropped. Address must begin with r but can (I

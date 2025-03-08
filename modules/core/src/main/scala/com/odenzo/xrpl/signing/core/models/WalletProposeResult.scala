@@ -2,7 +2,7 @@ package com.odenzo.xrpl.signing.core.models
 
 import io.circe.Codec
 import io.circe.Codec.*
-import AccountPublicKey.given
+import XrpPublicKey.given
 
 /**
   * When proposing a new wallet this returns all the values in text form.
@@ -23,7 +23,7 @@ case class WalletProposeResult(
     master_key: String,
     master_seed: String,
     master_seed_hex: String,
-    public_key: AccountPublicKey,
+    public_key: XrpPublicKey,
     public_key_hex: String,
 ) derives Codec.AsObject {
   inline def isED25519: Boolean           = key_type == KeyType.ed25519

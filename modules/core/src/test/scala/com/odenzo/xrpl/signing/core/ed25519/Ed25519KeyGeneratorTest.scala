@@ -1,48 +1,46 @@
-package com.odenzo.xrpl.signing.core.secp256k1
+package com.odenzo.xrpl.signing.core.ed25519
 
-import com.tersesystems.blindsight.LoggerFactory
-import scodec.bits.{ ByteVector, hex }
 import cats.effect.IO
 import com.odenzo.xrpl.signing.common.utils.MyLogging
+import com.odenzo.xrpl.signing.core.DeriveAccountAddress
 import com.odenzo.xrpl.signing.core.models.*
 import com.odenzo.xrpl.signing.core.seeds.{ RFC1751Keys, SeedOps }
 import com.odenzo.xrpl.signing.testkit.WalletTestIOSpec
 import com.tersesystems.blindsight.LoggerFactory
 import scodec.bits.Bases.Alphabets
 import scodec.bits.{ ByteVector, hex }
+import cats.syntax.all.given
 
 /**
   * Check to see the Secp Wallet Generator is accurate for MasterSeedHex
   *   - MasterSeed and MasterSeedHex isomorphism tested elsewhere.
   *   - Passphrase to MasterSeedHex tested elsewhere.
   */
-class GeneratorSecpTest extends WalletTestIOSpec {
+class Ed25519KeyGeneratorTest extends WalletTestIOSpec {
 
   private val log = LoggerFactory.getLogger
 
   import XrpSeed.asRawSeed // Extension method
-
+  import AccountAddress.given_Show_AccountAddress
   def check(walletRs: WalletProposeResult)(using loc: munit.Location): Unit = {
-    test(s"${walletRs.account_id} - ${walletRs.key_type}") {
+    test(s"${walletRs.account_id.show} - ${walletRs.key_type}") {
+      import XrpPublicKey.*
+      val seed: XrpSeed         = XrpSeed.fromBase58Unsafe(walletRs.master_seed) // Need to drop the 21 prefix
+      val keys: XrpKeyPair      = Ed25519KeyGenerators.createXrpKeyPair(seed)
+      println(keys.publicKey.asFullBytes.toHex)
+      val publicKey: ByteVector = keys.publicKey.asFullBytes
+      assertEquals(publicKey.toHex(Alphabets.HexUppercase), walletRs.public_key_hex, "Incorrect Public Key")
 
-      val seed: XrpSeed = XrpSeed.fromBase58Unsafe(walletRs.master_seed)
-      log.debug(s"Seed: ${seed.toHex}")
-
-      /** Private and Public key */
-      val keys: XrpKeyPair      = Generators.createKeyPairFromMasterSeed(seed)
-      // import AccountPublicKey.asRawKey
-      val publicKey: ByteVector = keys.publicKey.asRawKey
-
-      val expectedPrivateKey = walletRs.master_key
-
-      assertEquals(publicKey.toHex(Alphabets.HexUppercase), walletRs.public_key_hex)
-
+      for {
+        accountAddr <- DeriveAccountAddress.accountPublicKey2address(keys.publicKey)
+        _            = assertEquals(accountAddr, walletRs.account_id, "AccountAddress Mismatch")
+      } yield ()
     }
   }
-
+  // I guess this can be a fixture accessed by check.
   walletDataResource
     .use { (wallets: List[WalletProposeResult]) =>
-      wallets.foreach { (rs: WalletProposeResult) => check(rs) }
+      wallets.filter(_.isED25519).foreach((rs: WalletProposeResult) => check(rs))
       IO.unit
     }.unsafeRunSync()
 }

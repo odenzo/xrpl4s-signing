@@ -27,13 +27,13 @@ object XrpSeed:
   /** Validate the wrapped bytevector, including any prefixes etc */
   def validated(bv: ByteVector): ValidatedNec[String, XrpSeed] =
     (
-      TypePrefix.typePrefixIs(bv.head, TypePrefix.SeedValue).toValidatedNec,
+      TypePrefix.typePrefixIs(bv.head, TypePrefix.SeedValuePrefix).toValidatedNec,
       Validated.condNec(
         bv.size === bodyLengthInBytes,
         bv,
         s"""| MasterSeed/XrpSeed should be ${bodyLengthInBytes}   but was ${bv.size}
             | The ByteVector was ${bv}
-            | The typePrefix (not FieldId) was ${bv.head} ${TypePrefix.SeedValue}
+            | The typePrefix (not FieldId) was ${bv.head} ${TypePrefix.SeedValuePrefix}
             |""".stripMargin,
       ),
     ).mapN((_, _) => bv: XrpSeed)
@@ -44,7 +44,7 @@ object XrpSeed:
     */
   def fromBytesUnsafe(b: ByteVector): XrpSeed =
     assert(b.size == 16)
-    TypePrefix.SeedValue.bv ++ b
+    TypePrefix.SeedValuePrefix.bv ++ b
 
   /** TODO: Add Validation THis will bve tge full typeCode + body + checksum */
   def fromBase58Unsafe(b58: String): XrpSeed =
@@ -56,7 +56,7 @@ object XrpSeed:
     * Strips away a 21 byte down to 16 bytes after stipping checking and
     * typeCode
     */
-  def unwrap(checksum58: ByteVector): XrpSeed =
+  def unwrap(checksum58: XrpSeed): ByteVector =
     require(checksum58.size == 21, "XrpSeed/XrpSeed must be 21 bytes with typeCode and CheckSum")
     checksum58.drop(1).dropRight(4)
 
@@ -76,6 +76,6 @@ object XrpSeed:
       * The raw 16 byte seed for crypto work. currently not storing the
       * checksum, only prefix
       */
-    def asRawSeed: ByteVector = ms.drop(1)
+    def asRawSeed: ByteVector = ms.drop(1).dropRight(4)
 
 end XrpSeed

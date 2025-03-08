@@ -11,7 +11,7 @@ import scala.annotation.tailrec
   * No other code should *ever* use the built-in fromBase58/toBase58 for
   * ByteBector or BitVector from scodec TODO: Example Code
   */
-object XrpBase58Fix {
+object XrpBase58 {
   private val alphabet       = XrplBase58Alphabet
   private val zeroChar: Char = alphabet.toChar(0) // r for the xrp alphabet 1 for default bitcoin
   val foo                    = ByteVector.fromValidBase58("sB", Bases.Alphabets.Base58)

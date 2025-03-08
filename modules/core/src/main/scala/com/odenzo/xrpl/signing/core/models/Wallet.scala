@@ -5,7 +5,7 @@ import cats.data.*
 import cats.effect.*
 import cats.effect.syntax.all.*
 import cats.syntax.all.*
-import com.odenzo.xrpl.signing.core.models.XrpPublicKey.Codecs.given
+
 import com.tersesystems.blindsight.LoggerFactory
 import io.circe.{ Codec, Decoder, Json }
 import io.scalaland.chimney.dsl.*

@@ -3,10 +3,11 @@ package com.odenzo.xrpl.signing.core.secp256k1
 import cats.*
 import cats.data.*
 import cats.implicits.*
-import com.odenzo.xrpl.signing.common.binary.{ HashOps, XrpBinaryOps }
+import com.odenzo.xrpl.signing.common.binary.XrpBinaryOps
 import com.odenzo.xrpl.signing.common.utils.MyLogging
 import Secp256k1Ops.Constants.params
-import com.odenzo.xrpl.signing.core.models.{ AccountPublicKey, XrpKeyPair, XrpSeed }
+import cats.syntax.HashOps
+import com.odenzo.xrpl.signing.core.models.{ XrpKeyPair, XrpPrivateKey, XrpPublicKey, XrpSeed }
 import com.tersesystems.blindsight.LoggerFactory
 import org.bouncycastle.crypto.params.{ ECDomainParameters, ECPublicKeyParameters }
 import org.bouncycastle.math.ec.ECPoint
@@ -47,7 +48,7 @@ object Generators extends MyLogging with XrpBinaryOps with Secp256k1Ops {
     * MasterKeyPair private, public. Private Key ever used directly or always
     * seed?
     */
-  def createKeyPairFromMasterSeed(seed: XrpSeed): XrpKeyPair[ByteVector, AccountPublicKey] = {
+  def createKeyPairFromMasterSeed(seed: XrpSeed): XrpKeyPair = {
     val rootPrivateKey: ByteVector   = deriveRootPrivateKeyFromSeed(seed)
     val rootPublicKey                = deriveRootPublicKeyFromRootPrivateKey(rootPrivateKey)
     val intPrivateKey                = deriveIntermediatePrivateKey(rootPublicKey)
@@ -56,9 +57,9 @@ object Generators extends MyLogging with XrpBinaryOps with Secp256k1Ops {
     val masterPublicKeyB: ByteVector = deriveMasterPublicKeyFromMasterPrivateKey(masterPrivateKey)
     log.info(s"MasterPublicKeyB: $masterPublicKeyB")
     // assert(masterPublicKeyA.equals(masterPublicKeyB), "SECP MasterPublicKeys Didn't match")
-
-    val publicKey = AccountPublicKey.fromBytesUnsafe(masterPublicKeyB)
-    XrpKeyPair[ByteVector, AccountPublicKey](masterPrivateKey, publicKey)
+    val privateKey                   = XrpPrivateKey.fromBytesUnsafe(masterPrivateKey)
+    val publicKey                    = XrpPublicKey.fromBytesUnsafe(masterPublicKeyB)
+    XrpKeyPair(publicKey, privateKey)
   }
 
   /**

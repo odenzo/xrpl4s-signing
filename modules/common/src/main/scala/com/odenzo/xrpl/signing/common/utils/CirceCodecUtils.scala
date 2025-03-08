@@ -3,7 +3,7 @@ package com.odenzo.xrpl.signing.common.utils
 import cats.*
 import cats.data.*
 import cats.syntax.all.*
-import com.odenzo.xrpl.signing.common.binary.{XrpBase58Fix, XrplBase58Alphabet}
+import com.odenzo.xrpl.signing.common.binary.{XrpBase58, XrplBase58Alphabet}
 import com.odenzo.xrpl.signing.common.binary.XrpBinaryOps.toXrpBase58
 import com.tersesystems.blindsight.LoggerFactory
 import io.circe
@@ -22,12 +22,12 @@ import scala.util.Try
 /** Some of this is duplicated all over the place. Centralize here. */
 trait CirceCodecUtils extends MyLogging {
   private val log                                          = LoggerFactory.getLogger
-  import XrpBase58Fix.*
+  import XrpBase58.*
   val alphabet: XrplBase58Alphabet.type                    = XrplBase58Alphabet
-  def fromXrpBase58Unsafe(s: String): ByteVector           = XrpBase58Fix.fromValidXrpBase58(s)
-  def fromXrpBase58(s: String): Either[String, ByteVector] = XrpBase58Fix.fromXrpBase58Descriptive(s)
-  def toXrpBase58(bits: BitVector): String                 = XrpBase58Fix.toXrpBase58(bits.bytes)
-  def toXrpBase58(bytes: ByteVector): String               = XrpBase58Fix.toXrpBase58(bytes)
+  def fromXrpBase58Unsafe(s: String): ByteVector           = XrpBase58.fromValidXrpBase58(s)
+  def fromXrpBase58(s: String): Either[String, ByteVector] = XrpBase58.fromXrpBase58Descriptive(s)
+  def toXrpBase58(bits: BitVector): String                 = XrpBase58.toXrpBase58(bits.bytes)
+  def toXrpBase58(bytes: ByteVector): String               = XrpBase58.toXrpBase58(bytes)
 
   def oldFrom(b58: String) = ByteVector.fromBase58Descriptive(b58, alphabet)
 

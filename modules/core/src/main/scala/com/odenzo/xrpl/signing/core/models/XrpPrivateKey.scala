@@ -2,9 +2,10 @@ package com.odenzo.xrpl.signing.core.models
 
 import cats.data.Validated
 import com.odenzo.xrpl.signing.common.binary
-import com.odenzo.xrpl.signing.common.binary.{ XrpBase58Fix, XrpBinaryOps }
+import com.odenzo.xrpl.signing.common.binary.{ XrpBase58, XrpBinaryOps }
 import com.odenzo.xrpl.signing.common.utils.CirceCodecUtils
 import io.circe.{ Codec, Decoder, Encoder }
+import scodec.bits.Bases.Alphabets
 import scodec.bits.ByteVector.*
 import scodec.bits.{ ByteVector, hex }
 import scodec.given
@@ -28,8 +29,8 @@ object XrpPrivateKey:
   /** This doesn't seem to be picked automatically and needs import? */
   extension (ms: XrpPrivateKey)
     def bv: ByteVector = ms
-    def asHex: String  = ms.toHex
-    def base58: String = XrpBase58Fix.toXrpBase58(ms: ByteVector)
+    def asHex: String  = ms.toHex(Alphabets.HexUppercase)
+    def base58: String = XrpBase58.toXrpBase58(ms: ByteVector)
 
   object Codecs:
     given Codec[XrpPrivateKey] = CirceCodecUtils.xrpBase58Codec

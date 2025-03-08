@@ -1,7 +1,8 @@
 package com.odenzo.xrpl.signing.core.ed25519
 
-import com.odenzo.xrpl.signing.common.binary.{ HashOps, XrpBinaryOps }
-import com.odenzo.xrpl.signing.core.models.{ AccountPublicKey, XrpSeed }
+import cats.syntax.HashOps
+import com.odenzo.xrpl.signing.common.binary.XrpBinaryOps
+import com.odenzo.xrpl.signing.core.models.*
 import org.bouncycastle.crypto.AsymmetricCipherKeyPair
 import org.bouncycastle.crypto.generators.Ed25519KeyPairGenerator
 import org.bouncycastle.crypto.params.{
@@ -19,7 +20,7 @@ import java.security.SecureRandom
   * KeyPair/Wallet from Seed or Private Key. And we should be able to generate a
   * random seed i guess for WalletPropose functionlity.
   */
-object KeyGenerators {
+object Ed25519KeyGenerators {
 
   /**
     * Generates a totally random keypair for ED25519 I guess we could down-cast
@@ -36,6 +37,12 @@ object KeyGenerators {
     keyPair
   }
 
+  def createXrpKeyPair(xrpSeed: XrpSeed): XrpKeyPair =
+    val (bcPublic, bcPrivate)       = createBcKeyPairFromXrpSeed(xrpSeed)
+    val publicModel: XrpPublicKey   = convertBcPublicKeyToModel(bcPublic)
+    val privateModel: XrpPrivateKey = convertBcPrivateKeyToModel(bcPrivate)
+    XrpKeyPair(publicModel, privateModel)
+
   /**
     * Then generates the public key directly from PrivateKey, no AccountFamily
     * mumbo jumbo. SHA512 so the length is priv is somewhat arbitrary, usually
@@ -46,7 +53,10 @@ object KeyGenerators {
     * @return
     *   Bouncv Castle public and private key pair.
     */
-  def createKeyPairFromXrpSeed(seed: XrpSeed): (Ed25519PublicKeyParameters, Ed25519PrivateKeyParameters) = {
+  def createBcKeyPairFromXrpSeed(seed: XrpSeed): (Ed25519PublicKeyParameters, Ed25519PrivateKeyParameters) = {
+    val rawSeed: ByteVector                       = XrpSeed.unwrap(seed)
+    val hex                                       = rawSeed.toHex
+    println(s"SeedHex ${hex.size / 2} Bytes: $hex")
     val privateKey                                = derivePrivateKeyFromSeed(seed)
     val privateKeyBC: Ed25519PrivateKeyParameters = privateKeyToBC(privateKey)
     val publicKeyBC: Ed25519PublicKeyParameters   = privateKeyBC.generatePublicKey()
@@ -62,13 +72,15 @@ object KeyGenerators {
   inline def derivePublicKeyFromPrivateKeyBC(privateKeyBC: Ed25519PrivateKeyParameters): Ed25519PublicKeyParameters =
     privateKeyBC.generatePublicKey()
 
-    /** @return  32 byte public key without the 0xED in front. */
+    /**
+      * @return
+      *   XrpPublicKey from the raw crpto (e.g. handles left padding 0xED
+      */
+  inline def convertBcPublicKeyToModel(publicKey: Ed25519PublicKeyParameters): XrpPublicKey                         =
+    XrpPublicKey.fromBytesUnsafe(ByteVector(publicKey.getEncoded))
 
-  inline def convertBcPublicKeyToModel(publicKey: Ed25519PublicKeyParameters): AccountPublicKey =
-    AccountPublicKey.fromBytesUnsafe(ByteVector(publicKey.getEncoded))
-
-  inline def convertBcPrivateKeyToModel(privateKeyBC: Ed25519PrivateKeyParameters): ByteVector =
-    ByteVector.apply(privateKeyBC.getEncoded)
+  inline def convertBcPrivateKeyToModel(privateKeyBC: Ed25519PrivateKeyParameters): XrpPrivateKey =
+    XrpPrivateKey.fromBytesUnsafe(ByteVector(privateKeyBC.getEncoded))
 
 }
 
