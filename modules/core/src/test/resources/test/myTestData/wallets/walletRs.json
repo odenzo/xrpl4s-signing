@@ -1,104 +1,521 @@
 [
-  {
-    "account_id": "rGY579LVPSoaWLtpCW8YeX9K3SYypfhxUc",
-    "key_type": "secp256k1",
-    "master_key": "BUNK SEAT DAVE SOUL BITE SEW HORN DUNK ROAM BRAG DUET COIL",
-    "master_seed": "sndPSCLXp7qXZNozVVJupzgm7nrUz",
-    "master_seed_hex": "D27E37AF4213CF9A778865F1C0093B60",
-    "public_key": "aBQJYxhGkUkNnkmABz8UH9uKKDYDaT5579B1U9JHYAdXe5WdpmrB",
-    "public_key_hex": "0334EB8818A5A1430CB7E0309FE92548434AD9F903BC647140702C11FD78B398ED",
-    "warning": "This wallet was generated using a user-supplied passphrase. It may be vulnerable to brute-force attacks."
-  },
-  {
-    "account_id": "r8JLJgNdFjTxKcsEkbvom7VMJUnsENu6k",
-    "key_type": "secp256k1",
-    "master_key": "GRIM SOY EAR FORM DOE WICK BOY SIN JANE WORD HACK TEET",
-    "master_seed": "sncJPT2NAotfFbA8GpCXL7QYKGKhs",
-    "master_seed_hex": "D125C97E8282A708F6F190C241B86790",
-    "public_key": "aB4NPRJUt5xm9fa9gZZjEKD3YkrueZgzyuFXTCBaWkpANv7Lp9Bq",
-    "public_key_hex": "0224127FFBB6B7DA6CD56BFC8E1D4528E622F644696B9A432E740A2D2833F167CF",
-    "warning": "This wallet was generated using a user-supplied passphrase. It may be vulnerable to brute-force attacks."
-  },
-  {
-
-      "account_id": "rGJoABkPFLma72SDuAQFa98zjyWumTDykg",
-      "key_type": "secp256k1",
-      "master_key": "MARS SARA TRUE OUCH KING WATT GRAB RISK JOY FILE NAN BITS",
-      "master_seed": "snwi18WVLkbCkA7YxbEAkJzL5wjGp",
-      "master_seed_hex": "B1AA024084089A8FF06DEA64C1DFBAB7",
-      "public_key": "aBRCuUDtHukDDHgk4ticnkeKAmGjFcSkcBJZx6zHjz72d6edFGim",
-      "public_key_hex": "03E9177C911EC613DED229ACCEDE9886F02DD6F6F59E0154B6704B95208EEDE4D5",
-      "warning": "This wallet was generated using a user-supplied passphrase. It may be vulnerable to brute-force attacks."
-
-  },
-  {
-    "account_id": "rGJoABkPFLma72SDuAQFa98zjyWumTDykg",
-    "key_type": "secp256k1",
-    "master_key": "MARS SARA TRUE OUCH KING WATT GRAB RISK JOY FILE NAN BITS",
-    "master_seed": "snwi18WVLkbCkA7YxbEAkJzL5wjGp",
-    "master_seed_hex": "B1AA024084089A8FF06DEA64C1DFBAB7",
-    "public_key": "aBRCuUDtHukDDHgk4ticnkeKAmGjFcSkcBJZx6zHjz72d6edFGim",
-    "public_key_hex": "03E9177C911EC613DED229ACCEDE9886F02DD6F6F59E0154B6704B95208EEDE4D5",
-    "warning": "This wallet was generated using a user-supplied passphrase. It may be vulnerable to brute-force attacks."
-  },
-  {
-    "account_id": "ranYnfxnTakVQbny2i77vGgDWSrNYLJEom",
-    "key_type": "secp256k1",
-    "master_key": "GURU TIRE FINK HALT BARE HA ABE MURK MEAD GIBE GAUR BOWL",
-    "master_seed": "snJuSJomq3e93duqfcK9nyKTZMa8t",
-    "master_seed_hex": "BB9E8845E4123800302C95C902967D91",
-    "public_key": "aBRP5fqxgH91q2LYDGBYBuERyHiapyyAqS989Y7z41yfU2M2EskH",
-    "public_key_hex": "03C45404B53C1DAB532FEA5C0B03B0AB43F82648CD443EA17D7D0EDE5BF45F6A46",
-    "warning": "This wallet was generated using a user-supplied passphrase. It may be vulnerable to brute-force attacks."
-  },
-  {
-    "account_id": "rKu1kYXgbPpJtzuE65h8bDEbbzuYvs2Cuy",
-    "key_type": "secp256k1",
-    "master_key": "MEAT HALF SOAK ROWE MONT BEAT PI GLUE CORK PUB WEAL LOW",
-    "master_seed": "ssmwPb5qqBarYQc52rscJFcNvoHtD",
-    "master_seed_hex": "4C8EAF1AADA5B133A9E49B69845B72B9",
-    "public_key": "aBR9pN6wkNpnXU1UPGdGfKY1nYy9XbJ9giCF4KxxycusELSCtbNi",
-    "public_key_hex": "03A2FA68B5F8F8D85B6FC9584C4E31F2E8A7FFB630D2F48F44578B63843546EF3C",
-    "warning": "This wallet was generated using a user-supplied passphrase. It may be vulnerable to brute-force attacks."
-  },
-  {
-    "account_id": "r9rTydQyiyfmJXjCQs1PAVbUkq6RpRFPU3",
-    "key_type": "secp256k1",
-    "master_key": "RICE DUN LOCK GAIN HOW HALE BEAT ASK LOAD EROS TILT MUST",
-    "master_seed": "shW99qM52BTLxBBRHEi8qhqUBZyqj",
-    "master_seed_hex": "81BF0E3EC37EE05425C12144C50A02CF",
-    "public_key": "aB4Ty2KEnKpNd6PMLDitUnCBdnukqUiHCD3tEBT5ZThDLvxvj4qg",
-    "public_key_hex": "0242ED7072246C68F4B5084DA9F0A8A24240DFD40609610A54179CFB8CE8D27698",
-    "warning": "This wallet was generated using a user-supplied passphrase. It may be vulnerable to brute-force attacks."
-  },
-  {
-    "account_id": "rPucyPBNtLenrXunXSPvXHVwn8w8qVWn78",
-    "key_type": "secp256k1",
-    "master_key": "PAN MUTE JUTE EVER HAP HAP CUBA MORN HOOF BUN MORE AD",
-    "master_seed": "sp5izAs3LSKVXbQHmmQACdxoLfjGz",
-    "master_seed_hex": "01EEAB8469E2F76C329021BE921EF831",
-    "public_key": "aBQHfQBnPUQXv6f6pyn3e82fqTMxQMgd2xb6QwqyDUv3eUCbVjAo",
-    "public_key_hex": "0331A63115CD9F325A30FC8179AAD89DFEF0EF136C27E49D5161BB4CF3B7736D75",
-    "warning": "This wallet was generated using a user-supplied passphrase. It may be vulnerable to brute-force attacks."
-  },
-  {
-    "account_id": "rP2HoibSjt9QgaPybdd7o5N9YuXZUmLfGs",
-    "key_type": "secp256k1",
-    "master_key": "EGAN RIO LUST DOVE SOCK STEM BORE AWL CRAY BURY SURF COW",
-    "master_seed": "sspw2uw8g9jy96a2L3ESyfxpg3jz5",
-    "master_seed_hex": "17589E30B19D005DC7151EBBD3FEC67A",
-    "public_key": "aBPcWKeWVBsJAcDaAdPZPAqAEEKN9kfqDPzrnWrgyfGDiwRkHcY3",
-    "public_key_hex": "02D9FE0600186CE9A7C8F312432874977F5BECCD7CFA207E83B69F82505BAF962C",
-    "warning": "This wallet was generated using a user-supplied passphrase. It may be vulnerable to brute-force attacks."
-  },
-  {
-    "account_id": "rHb9CJAWyB4rj91VRWn96DkukG4bwdtyTh",
-    "key_type": "secp256k1",
-    "master_key": "I IRE BOND BOW TRIO LAID SEAT GOAL HEN IBIS IBIS DARE",
-    "master_seed": "snoPBrXtMeMyMHUVTgbuqAfg1SUTb",
-    "master_seed_hex": "DEDCE9CE67B451D852FD4E846FCDE31C",
-    "public_key": "aBQG8RQAzjs1eTKFEAQXr2gS4utcDiEC9wmi7pfUPTi27VCahwgw",
-    "public_key_hex": "0330E7FC9D56BB25D6893BA3F317AE5BCF33B3291BD63DB32654A313222F7FD020",
-    "warning": null
-  }
-]
+{
+"account_id" : "rD49ASD7u9u64JDS6SbqaTsqYZHQfqxy6M",
+"key_type" : "secp256k1",
+"master_key" : "FITS ELI BLEW DONE CALF ORAL KAHN BEER ACHE WEEK WORK INK",
+"master_seed" : "ssXCxSjhueXZLSBNkCQig6taDPHtz",
+"master_seed_hex" : "3BDCBF7C20B1CAA4922996BA64256281",
+"public_key" : "aB48zt55wyWHaTxANvjYhZ8b65edukkpoGyh98uoq7BYVsgTstKf",
+"public_key_hex" : "026E1EF2D320E25D810A608272E0F76F25F1BD318FAFECA8C8F70AC996B3A4F596",
+"warning" : "This wallet was generated using a user-supplied passphrase that has low entropy and is vulnerable to brute-force attacks."
+},
+{
+"account_id" : "rhzvebdn9S4RiWsXdukN9BjrMpjuWz1mLA",
+"key_type" : "secp256k1",
+"master_key" : "ONE HOG NICK BOMB END DUE FROG WAYS HELL FIG BOLO GOOF",
+"master_seed" : "ssfKDzH6vGzY63L3ZjRMDtFgkD4zC",
+"master_seed_hex" : "1DB7E5095A16BF86201CD12D1177832F",
+"public_key" : "aBQgpSykrZC6BDo6c4uvmJk6Zg1uD7ZuubGYh8JeoBBBBqqy9BAe",
+"public_key_hex" : "0365ADFD889C8406105B16B03890F47C8CBB4130B5B9E13C787E31841E0AEA2E29",
+"warning" : "This wallet was generated using a user-supplied passphrase that has low entropy and is vulnerable to brute-force attacks."
+},
+{
+"account_id" : "rhtQL6MYtFMDfrasuPkHoJjUVHSo336pp2",
+"key_type" : "secp256k1",
+"master_key" : "DRUM DAVY TESS DARK YAWN BOLO FLUE DRY SIT TUBE TUNA SONG",
+"master_seed" : "snRjr687FQixjbRLn6BHpt3ozJtoj",
+"master_seed_hex" : "C40F4F78F2F44183B6F4BF37A60B4E77",
+"public_key" : "aB4iK7UMBGd5TVWm5XYioGiczS7WW9jwgmzAindMsNN3sHewtbNe",
+"public_key_hex" : "0275A8F7D2C2CD22D8460C07A255EE3C18201BDE18B49F97019931BB27D6D1C0D1",
+"warning" : "This wallet was generated using a user-supplied passphrase that has low entropy and is vulnerable to brute-force attacks."
+},
+{
+"account_id" : "rDMjz4L5KsWWFnCXTKQUB1pztBaL4tsZWi",
+"key_type" : "secp256k1",
+"master_key" : "SLOB TIP HOOT VENT JUDD GAL SLID GENE LOY CUT COVE JOLT",
+"master_seed" : "ssCeWjjviXuwNZHhC5WXanVjj94qK",
+"master_seed_hex" : "45BB66869850F1DE2B322AFA6A1E48DF",
+"public_key" : "aBR2U9bR8fj1KL8pkhHV5y1fuHXCJ8zRgMpdApvQTA9joVVCNkwj",
+"public_key_hex" : "03DC21BB40BC46EA028FFECD35A477AF531E3A48C3CDD7168D9D2F76942CF104D4",
+"warning" : "This wallet was generated using a user-supplied passphrase that has low entropy and is vulnerable to brute-force attacks."
+},
+{
+"account_id" : "rB1ZTT7uqpaLFrFx9cH5XKE8mBtwBMxUDv",
+"key_type" : "secp256k1",
+"master_key" : "GOWN GOAL NIL BUNK PAY IS CEIL SLUR OKAY BIRD COD ATOM",
+"master_seed" : "sht5gdtREQ7v5EpLJZFEug8rPY869",
+"master_seed_hex" : "9DB0302C1E039C643D2813B0AFB4718F",
+"public_key" : "aB4qmDJFNrrH9iWvUDo9YRvHBMWqfNrpaiz924MwvW8DyeWxKYuV",
+"public_key_hex" : "027465B0887DCE1C56AED1471B3E7B7049452F95DD18A0BBC1CB0DD4008B68F990",
+"warning" : "This wallet was generated using a user-supplied passphrase that has low entropy and is vulnerable to brute-force attacks."
+},
+{
+"account_id" : "rQpZTmfAwRUVQG4KiMYDa5gRC2vjJNLKeC",
+"key_type" : "secp256k1",
+"master_key" : "MELD NOAH AMY ROT LORE EGO DOWN GAL OUCH SEAL SIS RING",
+"master_seed" : "shvQmRmoViDomiFN1UnfMqaMUd7ev",
+"master_seed_hex" : "9FC7F36B27BB4276222A5B1C0798D8B9",
+"public_key" : "aBRaAZjN5Dr5nXwykxkGR7qJ4xuN9pLVGLDL4eW4UqEZ7Yrd6NTk",
+"public_key_hex" : "039E410783DFC2CD090B650DFE73A763B4A4385B3F2551110CE393F68CAD6A9BC7",
+"warning" : "This wallet was generated using a user-supplied passphrase that has low entropy and is vulnerable to brute-force attacks."
+},
+{
+"account_id" : "rNUL6BkW3meU3HPD9BG8rdZum9LzTn9veA",
+"key_type" : "secp256k1",
+"master_key" : "NULL DASH INCH COME MATE DECK SOOT AMMO KLAN ELSE SALE COED",
+"master_seed" : "sndHCkuqyNr7EVuYoMrtCh7C3AVJU",
+"master_seed_hex" : "D25EAD3D9D8A69E2E2883B357AFA6DC6",
+"public_key" : "aBPQ4bM67uQsjbEhfQxCwgxMQFFTR99DWf83DiA5AEyeJyCjTg6s",
+"public_key_hex" : "02BE7135B552040755EE446F611EC4F2B3897448C81BAA1A3C6E94DF75E3F5EA5C",
+"warning" : "This wallet was generated using a user-supplied passphrase that has low entropy and is vulnerable to brute-force attacks."
+},
+{
+"account_id" : "rGBFrr7FofSrVYiwPWoN8v8buNoQvkL5D6",
+"key_type" : "secp256k1",
+"master_key" : "YOU BEEN ALIA HASH BUN FOND BYE BARD BUNK BLAB ALTO EACH",
+"master_seed" : "sanRozFAKG2Mykw53do4HhFgE8SHp",
+"master_seed_hex" : "F2B864AC8055EA09089520CA2BAD4A47",
+"public_key" : "aBQXQDixLDHamjdZYA6h17ACcfzX6vVxFgFLHWFdYfsum2EYw8bJ",
+"public_key_hex" : "035218B1FA3341534EF03DB2AD0061B456A20C42AE8F3E4934EA6DE28EADBB096B",
+"warning" : "This wallet was generated using a user-supplied passphrase that has low entropy and is vulnerable to brute-force attacks."
+},
+{
+"account_id" : "rUvmn3LVdwQDPDXi8f5Kifxb1TyxiL9e7b",
+"key_type" : "secp256k1",
+"master_key" : "NUT DIAL SIGH OAF BOCK TOLL HUGH CORE WATS SCAR SWAT GUS",
+"master_seed" : "ssMbNFLtgAtkrscMY9ajsKyZbL7iG",
+"master_seed_hex" : "2F62CEEBE0674D9CDAA9E5166F578E2D",
+"public_key" : "aB4oZvVrbewoyPHAafCnK2SUUqGWrmS43BbJNTLETBpdBpJEzcNo",
+"public_key_hex" : "026F69FB2FA5BEFDC771F5E0606A189CD611070B0D93097B001EDF084BAC2CBBBC",
+"warning" : "This wallet was generated using a user-supplied passphrase that has low entropy and is vulnerable to brute-force attacks."
+},
+{
+"account_id" : "rPiefyS373vE2RcEAs1eN7fjWezQXPydzt",
+"key_type" : "secp256k1",
+"master_key" : "FUSE JUNK TILL DOES CRAG PI NET CARL GRUB ONES FATE LURE",
+"master_seed" : "shw1rR5oBvEb7yyZzZmtb7qtoLsUn",
+"master_seed_hex" : "69E357E443728C2B67C0463AAF87B487",
+"public_key" : "aB4MMn8prqGaZ28tmp6yxtpPeF2CeinA6Zwwscr6uxTdx7QEH4zr",
+"public_key_hex" : "0233E009BB91CAD30C3B130488C3F48CCE9D0905623B91E5A8583042F09A476B0F",
+"warning" : "This wallet was generated using a user-supplied passphrase that has low entropy and is vulnerable to brute-force attacks."
+},
+{
+"account_id" : "rwGBG4385eu7232V3PRH81gttNfcszDRdS",
+"key_type" : "secp256k1",
+"master_key" : "HOYT DIME KONG DAYS SLUR ELBA EARN CURE LIMB ARM SHIN LAM",
+"master_seed" : "ssgPxFRtUUvDQ59rKUjHEbP5qJjSL",
+"master_seed_hex" : "46A8BD01BEBE4D79F6004E38A166AE9B",
+"public_key" : "aB48VTprPo6FTyQYtnU1hvRxdXJXt4oPaJE32L6f4fjPNmr8ouNy",
+"public_key_hex" : "026CF7DE2588D19AB38ABB0346E3E0CEF5DB60819510533BFD3B3906EA1995BF15",
+"warning" : "This wallet was generated using a user-supplied passphrase that has low entropy and is vulnerable to brute-force attacks."
+},
+{
+"account_id" : "rsGqRKu6jzouFF46L5qyFpM3g9AA2gLdKH",
+"key_type" : "secp256k1",
+"master_key" : "JACK GUS LIE SEAM CURT BELT GRIM MOVE JAW THEE HOG HOFF",
+"master_seed" : "ssQHzpDFgKQMnDtEMAvcF4fmUZnoZ",
+"master_seed_hex" : "32BB01757FF47790ACE206EC92F802A0",
+"public_key" : "aBQP3FHePgAfBbx3QfCwsqe9aoCFcj7W1zG66CsU1zuhaTppeMQq",
+"public_key_hex" : "033F540E6B8CD7D497393B39E4750A93FA2A00D8A300DC56B896790A0ACDEFDBC9",
+"warning" : "This wallet was generated using a user-supplied passphrase that has low entropy and is vulnerable to brute-force attacks."
+},
+{
+"account_id" : "rPbSq7gmMySN9PxNAwTRAP5Rbp1XZ2vnuQ",
+"key_type" : "secp256k1",
+"master_key" : "LARD CADY GIN MARE HAW LOB OVER MOW RUSE CODE VIE AX",
+"master_seed" : "spq2BRJ612F23dJd33Gn1eFSB2fh5",
+"master_seed_hex" : "0A3C8434523B65CA4A96B1DB5C3C8CAA",
+"public_key" : "aBPYvNeZjh1F6sDWGQU5PWztJ9QLJ2yP5YBRmUqu6W2baZe1LxqY",
+"public_key_hex" : "02D1D8925D74E9A0A8D8F507EC2A309D45DCD95905F44BE3E47FB968E37464E368",
+"warning" : "This wallet was generated using a user-supplied passphrase that has low entropy and is vulnerable to brute-force attacks."
+},
+{
+"account_id" : "rfafAJyvB69fG4M9788V24T5HjnEfYTzEg",
+"key_type" : "secp256k1",
+"master_key" : "BROW HOSE GAWK OWLY FOAL SAIL BAG UP SUDS LEAR HILL PAN",
+"master_seed" : "shn5p3YVk5ETdTeDqoAuYgJwyoaoS",
+"master_seed_hex" : "638229D692638805AB3748E5285E535F",
+"public_key" : "aBRE4oVbdUGPmHgApiBgxYHg4vc5yTf1iYWbLRBX44UsiTKXSh4t",
+"public_key_hex" : "03B168319D4D2F981ECD6D6397D0DE8CC874D55B866D24B460EAF2CEE6C568F66F",
+"warning" : "This wallet was generated using a user-supplied passphrase that has low entropy and is vulnerable to brute-force attacks."
+},
+{
+"account_id" : "rH3stzVuH8B9KzdPrYWwt3EXVMhJU7f6T5",
+"key_type" : "secp256k1",
+"master_key" : "CHIN GALA LIFT ASK DEFT MAE OTIS OR MESH CAKE SHIN MAIL",
+"master_seed" : "shDayB2b4XHFSGJJehUifVv3MZhKv",
+"master_seed_hex" : "6CA93D31EAF685C94D1EF701BB121166",
+"public_key" : "aBPf8Ugg5tj7KKoYArajF9RD1FXAyjdfC27fQyWuDWaS9kg9Xzjj",
+"public_key_hex" : "0298C412B55118B8A103508105787A83711377FBE26AF5E5CA11CCAAAA92373603",
+"warning" : "This wallet was generated using a user-supplied passphrase that has low entropy and is vulnerable to brute-force attacks."
+},
+{
+"account_id" : "rGY579LVPSoaWLtpCW8YeX9K3SYypfhxUc",
+"key_type" : "secp256k1",
+"master_key" : "BUNK SEAT DAVE SOUL BITE SEW HORN DUNK ROAM BRAG DUET COIL",
+"master_seed" : "sndPSCLXp7qXZNozVVJupzgm7nrUz",
+"master_seed_hex" : "D27E37AF4213CF9A778865F1C0093B60",
+"public_key" : "aBQJYxhGkUkNnkmABz8UH9uKKDYDaT5579B1U9JHYAdXe5WdpmrB",
+"public_key_hex" : "0334EB8818A5A1430CB7E0309FE92548434AD9F903BC647140702C11FD78B398ED",
+"warning" : "This wallet was generated using a user-supplied passphrase. It may be vulnerable to brute-force attacks."
+},
+{
+"account_id" : "r8JLJgNdFjTxKcsEkbvom7VMJUnsENu6k",
+"key_type" : "secp256k1",
+"master_key" : "GRIM SOY EAR FORM DOE WICK BOY SIN JANE WORD HACK TEET",
+"master_seed" : "sncJPT2NAotfFbA8GpCXL7QYKGKhs",
+"master_seed_hex" : "D125C97E8282A708F6F190C241B86790",
+"public_key" : "aB4NPRJUt5xm9fa9gZZjEKD3YkrueZgzyuFXTCBaWkpANv7Lp9Bq",
+"public_key_hex" : "0224127FFBB6B7DA6CD56BFC8E1D4528E622F644696B9A432E740A2D2833F167CF",
+"warning" : "This wallet was generated using a user-supplied passphrase. It may be vulnerable to brute-force attacks."
+},
+{
+"account_id" : "rGJoABkPFLma72SDuAQFa98zjyWumTDykg",
+"key_type" : "secp256k1",
+"master_key" : "MARS SARA TRUE OUCH KING WATT GRAB RISK JOY FILE NAN BITS",
+"master_seed" : "snwi18WVLkbCkA7YxbEAkJzL5wjGp",
+"master_seed_hex" : "B1AA024084089A8FF06DEA64C1DFBAB7",
+"public_key" : "aBRCuUDtHukDDHgk4ticnkeKAmGjFcSkcBJZx6zHjz72d6edFGim",
+"public_key_hex" : "03E9177C911EC613DED229ACCEDE9886F02DD6F6F59E0154B6704B95208EEDE4D5",
+"warning" : "This wallet was generated using a user-supplied passphrase. It may be vulnerable to brute-force attacks."
+},
+{
+"account_id" : "ranYnfxnTakVQbny2i77vGgDWSrNYLJEom",
+"key_type" : "secp256k1",
+"master_key" : "GURU TIRE FINK HALT BARE HA ABE MURK MEAD GIBE GAUR BOWL",
+"master_seed" : "snJuSJomq3e93duqfcK9nyKTZMa8t",
+"master_seed_hex" : "BB9E8845E4123800302C95C902967D91",
+"public_key" : "aBRP5fqxgH91q2LYDGBYBuERyHiapyyAqS989Y7z41yfU2M2EskH",
+"public_key_hex" : "03C45404B53C1DAB532FEA5C0B03B0AB43F82648CD443EA17D7D0EDE5BF45F6A46",
+"warning" : "This wallet was generated using a user-supplied passphrase. It may be vulnerable to brute-force attacks."
+},
+{
+"account_id" : "rGgXKT3fBQFjSM7GaonWJMUdXDZTEwtQdA",
+"key_type" : "secp256k1",
+"master_key" : "FOE BALI BOY USED OUTS ROAD LO OUT PEP DESK BATH JAKE",
+"master_seed" : "ssbDTXn6hnYyYMBNy8ApxMbB1dbiU",
+"master_seed_hex" : "403F4539CC102625A1A13CF922308A14",
+"public_key" : "aBPkAFkLSVcZW9U2ByJ5sdvsf24cBGTX9tRRrEuyf9eUvrHCMf4V",
+"public_key_hex" : "02ED27D679B67D0984F8E09A0BF30A35A0F3DC88DAACABCA1FAE5DF2693E9994A5",
+"warning" : "This wallet was generated using a user-supplied passphrase. It may be vulnerable to brute-force attacks."
+},
+{
+"account_id" : "rKu1kYXgbPpJtzuE65h8bDEbbzuYvs2Cuy",
+"key_type" : "secp256k1",
+"master_key" : "MEAT HALF SOAK ROWE MONT BEAT PI GLUE CORK PUB WEAL LOW",
+"master_seed" : "ssmwPb5qqBarYQc52rscJFcNvoHtD",
+"master_seed_hex" : "4C8EAF1AADA5B133A9E49B69845B72B9",
+"public_key" : "aBR9pN6wkNpnXU1UPGdGfKY1nYy9XbJ9giCF4KxxycusELSCtbNi",
+"public_key_hex" : "03A2FA68B5F8F8D85B6FC9584C4E31F2E8A7FFB630D2F48F44578B63843546EF3C",
+"warning" : "This wallet was generated using a user-supplied passphrase. It may be vulnerable to brute-force attacks."
+},
+{
+"account_id" : "r9rTydQyiyfmJXjCQs1PAVbUkq6RpRFPU3",
+"key_type" : "secp256k1",
+"master_key" : "RICE DUN LOCK GAIN HOW HALE BEAT ASK LOAD EROS TILT MUST",
+"master_seed" : "shW99qM52BTLxBBRHEi8qhqUBZyqj",
+"master_seed_hex" : "81BF0E3EC37EE05425C12144C50A02CF",
+"public_key" : "aB4Ty2KEnKpNd6PMLDitUnCBdnukqUiHCD3tEBT5ZThDLvxvj4qg",
+"public_key_hex" : "0242ED7072246C68F4B5084DA9F0A8A24240DFD40609610A54179CFB8CE8D27698",
+"warning" : "This wallet was generated using a user-supplied passphrase. It may be vulnerable to brute-force attacks."
+},
+{
+"account_id" : "rPucyPBNtLenrXunXSPvXHVwn8w8qVWn78",
+"key_type" : "secp256k1",
+"master_key" : "PAN MUTE JUTE EVER HAP HAP CUBA MORN HOOF BUN MORE AD",
+"master_seed" : "sp5izAs3LSKVXbQHmmQACdxoLfjGz",
+"master_seed_hex" : "01EEAB8469E2F76C329021BE921EF831",
+"public_key" : "aBQHfQBnPUQXv6f6pyn3e82fqTMxQMgd2xb6QwqyDUv3eUCbVjAo",
+"public_key_hex" : "0331A63115CD9F325A30FC8179AAD89DFEF0EF136C27E49D5161BB4CF3B7736D75",
+"warning" : "This wallet was generated using a user-supplied passphrase. It may be vulnerable to brute-force attacks."
+},
+{
+"account_id" : "rP2HoibSjt9QgaPybdd7o5N9YuXZUmLfGs",
+"key_type" : "secp256k1",
+"master_key" : "EGAN RIO LUST DOVE SOCK STEM BORE AWL CRAY BURY SURF COW",
+"master_seed" : "sspw2uw8g9jy96a2L3ESyfxpg3jz5",
+"master_seed_hex" : "17589E30B19D005DC7151EBBD3FEC67A",
+"public_key" : "aBPcWKeWVBsJAcDaAdPZPAqAEEKN9kfqDPzrnWrgyfGDiwRkHcY3",
+"public_key_hex" : "02D9FE0600186CE9A7C8F312432874977F5BECCD7CFA207E83B69F82505BAF962C",
+"warning" : "This wallet was generated using a user-supplied passphrase. It may be vulnerable to brute-force attacks."
+},
+{
+"account_id" : "rwDVtPXB1XiZrS1iXhfyqrgnrXFBB161ho",
+"key_type" : "secp256k1",
+"master_key" : "TRIM INN WALL COD DO PAP MEW NONE THEY BONY HAN OMEN",
+"master_seed" : "sh5fPUvsjtg3GA3mxKgnRc6NVyEHc",
+"master_seed_hex" : "908F31AEA9AB782864EE8085DABBA3EF",
+"public_key" : "aB45c8qLwWD5okwqnHwJYY5r3qoaTjEeVt8JJQ56R3tTyB5F9muD",
+"public_key_hex" : "02642C5437215FB97DD883DFFF766FF07B85B5691D2B6AE493123ADFAC0C3B8B47",
+"warning" : "This wallet was generated using a user-supplied passphrase. It may be vulnerable to brute-force attacks."
+},
+{
+"account_id" : "rHb9CJAWyB4rj91VRWn96DkukG4bwdtyTh",
+"key_type" : "secp256k1",
+"master_key" : "I IRE BOND BOW TRIO LAID SEAT GOAL HEN IBIS IBIS DARE",
+"master_seed" : "snoPBrXtMeMyMHUVTgbuqAfg1SUTb",
+"master_seed_hex" : "DEDCE9CE67B451D852FD4E846FCDE31C",
+"public_key" : "aBQG8RQAzjs1eTKFEAQXr2gS4utcDiEC9wmi7pfUPTi27VCahwgw",
+"public_key_hex" : "0330E7FC9D56BB25D6893BA3F317AE5BCF33B3291BD63DB32654A313222F7FD020",
+"warning" : null
+},
+{
+"account_id" : "rBa9QzQvnqmtYncCUJTrujVeN9jpjfKVSj",
+"key_type" : "ed25519",
+"master_key" : "FITS ELI BLEW DONE CALF ORAL KAHN BEER ACHE WEEK WORK INK",
+"master_seed" : "ssXCxSjhueXZLSBNkCQig6taDPHtz",
+"master_seed_hex" : "3BDCBF7C20B1CAA4922996BA64256281",
+"public_key" : "aKEg8NopLLQ1ALeNZNm7MrUYQpWGUdS7LvxAK8ghUx7Mix4pSMRh",
+"public_key_hex" : "ED791E09B13400212C2DC7C5EAB7A8A5D9BB00CD49F424BA03C2F3565DB0E10A98",
+"warning" : "This wallet was generated using a user-supplied passphrase that has low entropy and is vulnerable to brute-force attacks."
+},
+{
+"account_id" : "rB5bYjfQCH5KQ8tPFtkAoVzuUS8RjurdP5",
+"key_type" : "ed25519",
+"master_key" : "ONE HOG NICK BOMB END DUE FROG WAYS HELL FIG BOLO GOOF",
+"master_seed" : "ssfKDzH6vGzY63L3ZjRMDtFgkD4zC",
+"master_seed_hex" : "1DB7E5095A16BF86201CD12D1177832F",
+"public_key" : "aKEcTWEChx3fdjgnY4ahV1ND2zpKy7GvyE9Nc657PGc2rUCf5KPC",
+"public_key_hex" : "ED6F4D2C3A231D1F46718968C01D8871001BBD4C26009916D262B9833CE1655078",
+"warning" : "This wallet was generated using a user-supplied passphrase that has low entropy and is vulnerable to brute-force attacks."
+},
+{
+"account_id" : "rBC6RuanUoM39TkFgq64Y2zMTW8TsvPaHS",
+"key_type" : "ed25519",
+"master_key" : "DRUM DAVY TESS DARK YAWN BOLO FLUE DRY SIT TUBE TUNA SONG",
+"master_seed" : "snRjr687FQixjbRLn6BHpt3ozJtoj",
+"master_seed_hex" : "C40F4F78F2F44183B6F4BF37A60B4E77",
+"public_key" : "aKGh9D3UieWWq78S1EV1oDtEqwCHk9fXxRd9eGr6wKzyubaB7w9n",
+"public_key_hex" : "EDA99F140A381E9AFF01F951FDB50DCC415AC0C2B38F47578B695A4E0AAEBC564F",
+"warning" : "This wallet was generated using a user-supplied passphrase that has low entropy and is vulnerable to brute-force attacks."
+},
+{
+"account_id" : "rwwxMPWC8yrKFDxDBhPiNzta93nwqDTpjK",
+"key_type" : "ed25519",
+"master_key" : "SLOB TIP HOOT VENT JUDD GAL SLID GENE LOY CUT COVE JOLT",
+"master_seed" : "ssCeWjjviXuwNZHhC5WXanVjj94qK",
+"master_seed_hex" : "45BB66869850F1DE2B322AFA6A1E48DF",
+"public_key" : "aKNvHr8TGyvRRUjNpKhse8bvSv5WAbFSoAn25odLX1R6mBEhzVgB",
+"public_key_hex" : "ED1410DC37710BCD9B46AF3B322584DABD17FAE83A2A6CF48B661271867DBC5065",
+"warning" : "This wallet was generated using a user-supplied passphrase that has low entropy and is vulnerable to brute-force attacks."
+},
+{
+"account_id" : "rGvAENY1rYyurXqQkcELFVdqduSooYKfjL",
+"key_type" : "ed25519",
+"master_key" : "GOWN GOAL NIL BUNK PAY IS CEIL SLUR OKAY BIRD COD ATOM",
+"master_seed" : "sht5gdtREQ7v5EpLJZFEug8rPY869",
+"master_seed_hex" : "9DB0302C1E039C643D2813B0AFB4718F",
+"public_key" : "aKGLNMXXFNGTSCPTPANki4gUvjxQXhKTQLpe5vYQzpVtQUvfhSom",
+"public_key_hex" : "EDCE271C07A0026FEEBA96AB180C795002BB158215E86E93448B7DBC773F0E78D9",
+"warning" : "This wallet was generated using a user-supplied passphrase that has low entropy and is vulnerable to brute-force attacks."
+},
+{
+"account_id" : "r9w9NJ835MbtpvXoxGGDM9b8fqU57u9HZN",
+"key_type" : "ed25519",
+"master_key" : "MELD NOAH AMY ROT LORE EGO DOWN GAL OUCH SEAL SIS RING",
+"master_seed" : "shvQmRmoViDomiFN1UnfMqaMUd7ev",
+"master_seed_hex" : "9FC7F36B27BB4276222A5B1C0798D8B9",
+"public_key" : "aKEvSbB32YPq4h4QYDhBAwFTiQvM3LnTT7sJpKxghD73jnVHtT7L",
+"public_key_hex" : "ED982307663082BC000624D86D6029002B36E7545B6E2FCC4FB85F4EB1A5923CBF",
+"warning" : "This wallet was generated using a user-supplied passphrase that has low entropy and is vulnerable to brute-force attacks."
+},
+{
+"account_id" : "rNowCjjHDHvb6WNERiZ8KGD4zFDyrSSDRy",
+"key_type" : "ed25519",
+"master_key" : "NULL DASH INCH COME MATE DECK SOOT AMMO KLAN ELSE SALE COED",
+"master_seed" : "sndHCkuqyNr7EVuYoMrtCh7C3AVJU",
+"master_seed_hex" : "D25EAD3D9D8A69E2E2883B357AFA6DC6",
+"public_key" : "aKEY9QMt1d8JPd8AjRwGEx2dqKiFVcgc2MYQKPNA5Hkw5oVEmrtt",
+"public_key_hex" : "ED6582A3E99CB13A0B49D414D5A445CFA42F2962731EF9102CB8F0262715B7DA06",
+"warning" : "This wallet was generated using a user-supplied passphrase that has low entropy and is vulnerable to brute-force attacks."
+},
+{
+"account_id" : "rQDNSju1mF5XMS7WigEw8659uaLMCvtCsc",
+"key_type" : "ed25519",
+"master_key" : "YOU BEEN ALIA HASH BUN FOND BYE BARD BUNK BLAB ALTO EACH",
+"master_seed" : "sanRozFAKG2Mykw53do4HhFgE8SHp",
+"master_seed_hex" : "F2B864AC8055EA09089520CA2BAD4A47",
+"public_key" : "aKEfCsAjyskU9E9SMBj7XpY8MAxeLiaq3sjWSyTQrPQa4CmGimfS",
+"public_key_hex" : "ED2DE7CA8DE2268C47F98D98FD9A6F256EF07FD35AFB075405820DB2EAB1C8C029",
+"warning" : "This wallet was generated using a user-supplied passphrase that has low entropy and is vulnerable to brute-force attacks."
+},
+{
+"account_id" : "rGahVLH7SrDNBgpEK5fbgQBLCi3f5tb7us",
+"key_type" : "ed25519",
+"master_key" : "NUT DIAL SIGH OAF BOCK TOLL HUGH CORE WATS SCAR SWAT GUS",
+"master_seed" : "ssMbNFLtgAtkrscMY9ajsKyZbL7iG",
+"master_seed_hex" : "2F62CEEBE0674D9CDAA9E5166F578E2D",
+"public_key" : "aKGngzutpky4MYC4vSaWMXS5RH219qq3z23oB7WNB3CJNpvnf5pX",
+"public_key_hex" : "EDAD22F403B9824CC82A1B0C0BF3A15968D5F64AF45445FABB1A4535D1FCBA474D",
+"warning" : "This wallet was generated using a user-supplied passphrase that has low entropy and is vulnerable to brute-force attacks."
+},
+{
+"account_id" : "rNsiKnfJobyp6jWb2pZ1PzmvbsvFkwWAXh",
+"key_type" : "ed25519",
+"master_key" : "FUSE JUNK TILL DOES CRAG PI NET CARL GRUB ONES FATE LURE",
+"master_seed" : "shw1rR5oBvEb7yyZzZmtb7qtoLsUn",
+"master_seed_hex" : "69E357E443728C2B67C0463AAF87B487",
+"public_key" : "aKEC9YRGWZsKk87bXyjiyzYWGth7j45Ns3HfiRHvUeRzK4NrNx1y",
+"public_key_hex" : "ED7568FCE766D5F4938DFF69F5413BD8BC1E94A020C4A2ED45EC506CB66579002F",
+"warning" : "This wallet was generated using a user-supplied passphrase that has low entropy and is vulnerable to brute-force attacks."
+},
+{
+"account_id" : "rKJ5iWPcjbkigzNXSc695UWgkNMX5ZYmhF",
+"key_type" : "ed25519",
+"master_key" : "HOYT DIME KONG DAYS SLUR ELBA EARN CURE LIMB ARM SHIN LAM",
+"master_seed" : "ssgPxFRtUUvDQ59rKUjHEbP5qJjSL",
+"master_seed_hex" : "46A8BD01BEBE4D79F6004E38A166AE9B",
+"public_key" : "aKEPMtLPJvs46UhFJpMD7PoexGwXD1ZiMRsybw9bXhT79E3LdZXT",
+"public_key_hex" : "ED5190398FD7AD1509ADE6B9895947B653D97A292FC9D3AED1B76EF1DF403E8DF4",
+"warning" : "This wallet was generated using a user-supplied passphrase that has low entropy and is vulnerable to brute-force attacks."
+},
+{
+"account_id" : "raea8GbMRGYjJCNeqKhFbXKFpHXNwXzaPB",
+"key_type" : "ed25519",
+"master_key" : "JACK GUS LIE SEAM CURT BELT GRIM MOVE JAW THEE HOG HOFF",
+"master_seed" : "ssQHzpDFgKQMnDtEMAvcF4fmUZnoZ",
+"master_seed_hex" : "32BB01757FF47790ACE206EC92F802A0",
+"public_key" : "aKEHY79RBHoNgG8cKx9QQYPyjJu4mSzyFqD2WzYRoU1yUL6oRGQc",
+"public_key_hex" : "ED445A9CA1C21EC3777C4454220F4630FCE1910399C5F406DD5A4AADD4EDC2C478",
+"warning" : "This wallet was generated using a user-supplied passphrase that has low entropy and is vulnerable to brute-force attacks."
+},
+{
+"account_id" : "rJ446d9ZrN9hADe6nnVbMM5vVB3vGz5m5g",
+"key_type" : "ed25519",
+"master_key" : "LARD CADY GIN MARE HAW LOB OVER MOW RUSE CODE VIE AX",
+"master_seed" : "spq2BRJ612F23dJd33Gn1eFSB2fh5",
+"master_seed_hex" : "0A3C8434523B65CA4A96B1DB5C3C8CAA",
+"public_key" : "aKEVrf8GX6QUs9HS2oB9oyF9zPiBkAAGCHcQ493HZ4KM9k8czE4s",
+"public_key_hex" : "ED5E5FC2D01AD83337914A51AB2F2391E3A8953BBC33CEABBEBF15AFB25C15A648",
+"warning" : "This wallet was generated using a user-supplied passphrase that has low entropy and is vulnerable to brute-force attacks."
+},
+{
+"account_id" : "rGgJhupbHJugvtZUbfmWQSiKnFwafFx43r",
+"key_type" : "ed25519",
+"master_key" : "BROW HOSE GAWK OWLY FOAL SAIL BAG UP SUDS LEAR HILL PAN",
+"master_seed" : "shn5p3YVk5ETdTeDqoAuYgJwyoaoS",
+"master_seed_hex" : "638229D692638805AB3748E5285E535F",
+"public_key" : "aKEnUjrMf9DxFCX8ZmhGDvqABN3kP6TuWf3GTBFv1QCkqrpADgoo",
+"public_key_hex" : "ED28556302C16D0FDE7C014F8247D944A7BE620A16CD589946946FB891B8E6E89D",
+"warning" : "This wallet was generated using a user-supplied passphrase that has low entropy and is vulnerable to brute-force attacks."
+},
+{
+"account_id" : "rDwBecsGeT21VPmQumuL6uegRNXazrYY1y",
+"key_type" : "ed25519",
+"master_key" : "CHIN GALA LIFT ASK DEFT MAE OTIS OR MESH CAKE SHIN MAIL",
+"master_seed" : "shDayB2b4XHFSGJJehUifVv3MZhKv",
+"master_seed_hex" : "6CA93D31EAF685C94D1EF701BB121166",
+"public_key" : "aKErouQ1bkuXC6HLsZ9L4BzVhxPamjfg2qUm9Sd3nx3hZQJNUaJp",
+"public_key_hex" : "ED20A0D6EAF35263C5996747B25403477D80A6FF5AB4DB12A127818F4C6038117F",
+"warning" : "This wallet was generated using a user-supplied passphrase that has low entropy and is vulnerable to brute-force attacks."
+},
+{
+"account_id" : "ratkb7ZYjEagdLBGZHgFU2wzGekoGtH6VM",
+"key_type" : "ed25519",
+"master_key" : "BUNK SEAT DAVE SOUL BITE SEW HORN DUNK ROAM BRAG DUET COIL",
+"master_seed" : "sndPSCLXp7qXZNozVVJupzgm7nrUz",
+"master_seed_hex" : "D27E37AF4213CF9A778865F1C0093B60",
+"public_key" : "aKNtbbq8WLT1F3SA218FC3vizuQVXJqaV5bAEwNX6doBP7iXMcin",
+"public_key_hex" : "ED10409562E73AA4B454BC3BE6881379F05E466E793CF533DBFDF945227987CF4F",
+"warning" : "This wallet was generated using a user-supplied passphrase. It may be vulnerable to brute-force attacks."
+},
+{
+"account_id" : "raZpPV6gxTqGKExebNr4cEwXuMkxnKgzJm",
+"key_type" : "ed25519",
+"master_key" : "GRIM SOY EAR FORM DOE WICK BOY SIN JANE WORD HACK TEET",
+"master_seed" : "sncJPT2NAotfFbA8GpCXL7QYKGKhs",
+"master_seed_hex" : "D125C97E8282A708F6F190C241B86790",
+"public_key" : "aKEBqJrhb7uvuW6fMuUW6gvY4yZnYqaVpaejQEfRyF9d4CPsrNuK",
+"public_key_hex" : "ED37638EDE578CA64413EF69839F32F608D6ED5A76557541DBEAACDA41DDB0F66B",
+"warning" : "This wallet was generated using a user-supplied passphrase. It may be vulnerable to brute-force attacks."
+},
+{
+"account_id" : "rB1veE8czUZe2GVG1F7teEuUPaePMJ6eE",
+"key_type" : "ed25519",
+"master_key" : "MARS SARA TRUE OUCH KING WATT GRAB RISK JOY FILE NAN BITS",
+"master_seed" : "snwi18WVLkbCkA7YxbEAkJzL5wjGp",
+"master_seed_hex" : "B1AA024084089A8FF06DEA64C1DFBAB7",
+"public_key" : "aKGW1Z79fopW9Ujai8yGkmgW3hBqH47wSWa4Tty25jidUGPqDMPP",
+"public_key_hex" : "EDE650C83EA2155FB8F19CA6B497E7C13FE66D9F4C4432795D36D6C734B099F3E2",
+"warning" : "This wallet was generated using a user-supplied passphrase. It may be vulnerable to brute-force attacks."
+},
+{
+"account_id" : "r9fino4zddBbBF4VbzTv6FTPvtFcwGfne4",
+"key_type" : "ed25519",
+"master_key" : "GURU TIRE FINK HALT BARE HA ABE MURK MEAD GIBE GAUR BOWL",
+"master_seed" : "snJuSJomq3e93duqfcK9nyKTZMa8t",
+"master_seed_hex" : "BB9E8845E4123800302C95C902967D91",
+"public_key" : "aKGeCpFwaYDA8We5m2GkHj2zcxHswKbri3NWkgp9YQdh7gXNAYf9",
+"public_key_hex" : "EDF7FD747FCD0A84F233C536096C388654BF0F458772FF9DD668DC65942C8CD10C",
+"warning" : "This wallet was generated using a user-supplied passphrase. It may be vulnerable to brute-force attacks."
+},
+{
+"account_id" : "rnAipgdzkDfcU5KuSefvuHXvgb7WTM5Ys8",
+"key_type" : "ed25519",
+"master_key" : "FOE BALI BOY USED OUTS ROAD LO OUT PEP DESK BATH JAKE",
+"master_seed" : "ssbDTXn6hnYyYMBNy8ApxMbB1dbiU",
+"master_seed_hex" : "403F4539CC102625A1A13CF922308A14",
+"public_key" : "aKEDuDu5i3g4GxwofhLwsoPVFqvP9oaD5UL4AmaZewsxH45K8GP3",
+"public_key_hex" : "ED3C157F7389CA0B06819859B2363B15ADF12CB3BF139199A935E183A3AE25F7E4",
+"warning" : "This wallet was generated using a user-supplied passphrase. It may be vulnerable to brute-force attacks."
+},
+{
+"account_id" : "r9CfbxmaGBjw4P3kwywPrXQnJfGGujqQ8Z",
+"key_type" : "ed25519",
+"master_key" : "MEAT HALF SOAK ROWE MONT BEAT PI GLUE CORK PUB WEAL LOW",
+"master_seed" : "ssmwPb5qqBarYQc52rscJFcNvoHtD",
+"master_seed_hex" : "4C8EAF1AADA5B133A9E49B69845B72B9",
+"public_key" : "aKEendvDw1bCtHL94mRUgaoGbUMSAYtMf5gNxTYqsbT8WcGEfGhi",
+"public_key_hex" : "ED72FC920FF2999AFAE3B32ED6739DB7892FD39744FA9E4C9313DF32EBD6BC6DBF",
+"warning" : "This wallet was generated using a user-supplied passphrase. It may be vulnerable to brute-force attacks."
+},
+{
+"account_id" : "rf2AACd5ma39aUWvy8HNEr7f2HicUZWud7",
+"key_type" : "ed25519",
+"master_key" : "RICE DUN LOCK GAIN HOW HALE BEAT ASK LOAD EROS TILT MUST",
+"master_seed" : "shW99qM52BTLxBBRHEi8qhqUBZyqj",
+"master_seed_hex" : "81BF0E3EC37EE05425C12144C50A02CF",
+"public_key" : "aKNyA2Xz7A77FSP5HgzTSz99d8u3tqqzevSUu5Z3iUiCCWSMLca4",
+"public_key_hex" : "ED1C63320A0D37EB2EF02E981004E44D784D624B3316A997BD3233439645939151",
+"warning" : "This wallet was generated using a user-supplied passphrase. It may be vulnerable to brute-force attacks."
+},
+{
+"account_id" : "rfSKkH8STCRZJBbCqNAP9e2D8CBBxRKKqN",
+"key_type" : "ed25519",
+"master_key" : "PAN MUTE JUTE EVER HAP HAP CUBA MORN HOOF BUN MORE AD",
+"master_seed" : "sp5izAs3LSKVXbQHmmQACdxoLfjGz",
+"master_seed_hex" : "01EEAB8469E2F76C329021BE921EF831",
+"public_key" : "aKG3xoPHKv2R3bpPMNGbVZ73K7hRuoquHyscssT4Zaes5EF14EWk",
+"public_key_hex" : "EDB49126F39F450C65EDECADB74F681ABA51C542397214A4F8B54A2B5BCD158B72",
+"warning" : "This wallet was generated using a user-supplied passphrase. It may be vulnerable to brute-force attacks."
+},
+{
+"account_id" : "rBvGFY12E32Fp8i5XocLELLWJ97DS4N5eu",
+"key_type" : "ed25519",
+"master_key" : "EGAN RIO LUST DOVE SOCK STEM BORE AWL CRAY BURY SURF COW",
+"master_seed" : "sspw2uw8g9jy96a2L3ESyfxpg3jz5",
+"master_seed_hex" : "17589E30B19D005DC7151EBBD3FEC67A",
+"public_key" : "aKECKqZU5jB7yFg9CPanHRUcLrFqMBUuCtwC8g3xrLKpoSq4BGyh",
+"public_key_hex" : "ED75D02B6BFA5061F211287DE5808C7F5F811956101D994872E1ED0143F43C2A86",
+"warning" : "This wallet was generated using a user-supplied passphrase. It may be vulnerable to brute-force attacks."
+},
+{
+"account_id" : "rNs6pZb1R661dtVSuLaVQ2zZLWGEPt4taT",
+"key_type" : "ed25519",
+"master_key" : "TRIM INN WALL COD DO PAP MEW NONE THEY BONY HAN OMEN",
+"master_seed" : "sh5fPUvsjtg3GA3mxKgnRc6NVyEHc",
+"master_seed_hex" : "908F31AEA9AB782864EE8085DABBA3EF",
+"public_key" : "aKGZcKXAsF8ZiaSAuE4U5SKkQkW9QCJ5wfaYa5jVBA9XQGQgHFBG",
+"public_key_hex" : "EDEC87E1A89FB0E1D147C1DED910E7A40049EAF6DDFBC9DA72768FAFE1FD00DC18",
+"warning" : "This wallet was generated using a user-supplied passphrase. It may be vulnerable to brute-force attacks."
+},
+{
+"account_id" : "rGWrZyQqhTp9Xu7G5Pkayo7bXjH4k4QYpf",
+"key_type" : "ed25519",
+"master_key" : "I IRE BOND BOW TRIO LAID SEAT GOAL HEN IBIS IBIS DARE",
+"master_seed" : "snoPBrXtMeMyMHUVTgbuqAfg1SUTb",
+"master_seed_hex" : "DEDCE9CE67B451D852FD4E846FCDE31C",
+"public_key" : "aKGheSBjmCsKJVuLNKRAKpZXT6wpk2FCuEZAXJupXgdAxX5THCqR",
+"public_key_hex" : "EDAAC3F98BB94F451804EF5993C847DAAA4E6154F455635659D88AA5C80F156303",
+"warning" : null
+}]

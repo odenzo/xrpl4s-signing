@@ -1,5 +1,7 @@
 package com.odenzo.xrpl.signing.core.models
 
+import com.odenzo.xrpl.signing.common.utils.CirceCodecUtils
+import io.circe.Codec
 import scodec.bits.{ ByteVector, hex }
 
 /**
@@ -10,6 +12,8 @@ opaque type AccountPublicKey = ByteVector
 
 object AccountPublicKey {
   val typePrefix = hex"23"
+
+  given Codec[AccountPublicKey] = CirceCodecUtils.xrpBase58Codec
 
   /**
     * Package a raw public key in 33 bytes compressed form into wrapped,
@@ -22,6 +26,8 @@ object AccountPublicKey {
     else throw IllegalArgumentException(s"AccountPublicKey size ${b.size} not in (32,33)")
 
   extension (apk: AccountPublicKey)
+    def asFullBytes: ByteVector = apk
+
     /**
       * Returns 32 or 33 byte with no prefix. Strips 0xED from 33 bytes ti form
       * 32 byte

@@ -1,5 +1,6 @@
 package com.odenzo.xrpl.signing.core.secp256k1
 
+import com.odenzo.xrpl.signing.common.binary.XrpBinaryOps
 import org.bouncycastle.asn1.sec.SECNamedCurves
 import org.bouncycastle.asn1.x9.X9ECParameters
 import org.bouncycastle.crypto.params.ECDomainParameters
@@ -15,10 +16,8 @@ import java.math.BigInteger
 import java.security.spec.ECPublicKeySpec
 import java.security.*
 
-trait Secp256k1Ops {
+trait Secp256k1Ops extends XrpBinaryOps {
   import Secp256k1Ops.Constants
-  Security.addProvider(new BouncyCastleProvider)
-  protected val provider: Provider = Security.getProvider(Constants.providerName)
 
   /** Assumes key is 32 bytes. Return true is all zero bits. */
   def isKeyAllZeroes(key: ByteVector): Boolean = key == Constants.zero32

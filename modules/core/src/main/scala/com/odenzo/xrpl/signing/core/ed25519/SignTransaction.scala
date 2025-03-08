@@ -2,7 +2,7 @@ package com.odenzo.xrpl.signing.core.ed25519
 
 import cats.*
 import cats.data.*
-import com.odenzo.xrpl.signing.common.binary.{ BouncyCastleOps, XrpBinaryOps }
+import com.odenzo.xrpl.signing.common.binary.XrpBinaryOps
 import org.bouncycastle.asn1.x9.X9ECParameters
 import org.bouncycastle.crypto.AsymmetricCipherKeyPair
 import org.bouncycastle.crypto.ec.CustomNamedCurves
@@ -24,7 +24,7 @@ import java.security.{ Provider, SecureRandom }
   * https://xrpl.org/docs/concepts/accounts/cryptographic-keys#key-derivation 16
   * byte seed ->
   */
-object SignTransaction extends BouncyCastleOps with XrpBinaryOps {
+object SignTransaction extends XrpBinaryOps {
 
   private val curve: X9ECParameters = CustomNamedCurves.getByName("curve25519")
   private val order: BigInteger     = curve.getCurve.getOrder

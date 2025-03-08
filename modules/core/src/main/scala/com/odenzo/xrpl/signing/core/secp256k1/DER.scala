@@ -3,12 +3,12 @@ package com.odenzo.xrpl.signing.core.secp256k1
 import cats.*
 import cats.data.*
 import cats.implicits.*
-import com.odenzo.xrpl.signing.common.binary.BouncyCastleOps
+import com.odenzo.xrpl.signing.common.binary.XrpBinaryOps
 import com.odenzo.xrpl.signing.common.utils.MyLogging
 import com.tersesystems.blindsight.LoggerFactory
-import org.bouncycastle.asn1.{ ASN1Integer, DERSequenceGenerator }
+import org.bouncycastle.asn1.{ASN1Integer, DERSequenceGenerator}
 import org.bouncycastle.util.BigIntegers
-import scodec.bits.{ BitVector, ByteVector, hex }
+import scodec.bits.{BitVector, ByteVector, hex}
 
 import java.io.ByteArrayOutputStream
 import java.math.BigInteger
@@ -20,7 +20,7 @@ import scala.util.Try
   *   - r and s from Signature are used as Java BigInteger for downstream Bouncy
   *     Castle crypto calls.
   */
-object DER extends MyLogging with BouncyCastleOps {
+object DER extends MyLogging with XrpBinaryOps {
   private val log = LoggerFactory.getLogger
 
   val header = hex"30"

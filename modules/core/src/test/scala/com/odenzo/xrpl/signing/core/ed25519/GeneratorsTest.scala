@@ -1,6 +1,6 @@
-package com.odenzo.xrpl.signing.crypto.ed25519
+package com.odenzo.xrpl.signing.core.ed25519
 
-import com.odenzo.xrpl.signing.core.ed25519.Generators
+import com.odenzo.xrpl.signing.core.ed25519.KeyGenerators
 import com.odenzo.xrpl.signing.core.models.XrpSeed
 import com.tersesystems.blindsight.LoggerFactory
 import io.circe.Json

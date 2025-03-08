@@ -3,22 +3,26 @@ package com.odenzo.xrpl.signing.common.binary
 import com.odenzo.xrpl.signing.common.utils.*
 import com.odenzo.xrpl.signing.common.utils.MyLogging
 import com.tersesystems.blindsight.LoggerFactory
-import io.circe.{ Decoder, Encoder }
+import io.circe.{Decoder, Encoder}
+import org.bouncycastle.jce.provider.BouncyCastleProvider
+import org.bouncycastle.util.BigIntegers
 import scodec.bits.Bases.Alphabet
 import scodec.bits.Bases.Alphabets.*
-import scodec.bits.{ BitVector, ByteVector, hex }
+import scodec.bits.{BitVector, ByteVector, hex}
 
 import java.math.BigInteger
 import java.nio.charset.StandardCharsets
-import java.security.{ MessageDigest, SecureRandom }
+import java.security.{MessageDigest, Provider, SecureRandom, Security}
 import scala.annotation.tailrec
 import scala.quoted.ToExpr.ArrayOfByteToExpr
 import scala.util.Try
 
-/** XrpSpecific (mostly) binary utilities */
+/** XrpSpecific and General Binary Ops, including some Bouncy Castle ops */
 trait XrpBinaryOps extends MyLogging with HashOps {
   private val log                         = LoggerFactory.getLogger
   private val sha256Digest: MessageDigest = MessageDigest.getInstance("SHA-256")
+  Security.addProvider(new BouncyCastleProvider)
+  val provider: Provider                  = Security.getProvider("BC")
 
   val accountPrefix          = hex"00"
   val publicKeyPrefix        = hex"23"
@@ -27,6 +31,25 @@ trait XrpBinaryOps extends MyLogging with HashOps {
 
   export ByteVector.given
   val secureRandom = SecureRandom.getInstanceStrong
+
+  /**
+    * Given an unsigned (?) integer in as bytes convert to a BigInt for use in
+    * Bouncy Castle/JCA. I am unsure exactly what it is excepting in terms of
+    * bits, typically we have 32 or 33 bytes so its a large number. Way to bit
+    * to fit in a long.
+    */
+  inline def convertByteVectorToBigInt(bv: ByteVector): BigInt = {
+    BigIntegers.fromUnsignedByteArray(bv.toArray)
+  }
+
+  /**
+    * Currently this does 2-complement to decimal represesentation but it DOES
+    * NOT pad the bytes out to any fixed length
+    */
+  inline def convertBigIntToUnsignedByteVector(v: BigInt): ByteVector = {
+    val bytes: Array[Byte] = BigIntegers.asUnsignedByteArray(v.bigInteger) // Can pass in a len to get zero left padding
+    ByteVector(bytes)
+  }
 
   def randomBits(len: Int): BitVector =
     val bytes = new Array[Byte](len)
@@ -37,11 +60,60 @@ trait XrpBinaryOps extends MyLogging with HashOps {
   def stringToByteVector_UTF8(s: String): ByteVector =
     ByteVector(s.getBytes(StandardCharsets.UTF_8))
 
-    /**
-      * Limits on size to 64 bits, throws. ByteVector is considered as unsigned
-      * bytes *
-      */
-  def unsignedBytesToBigInt(bv: ByteVector): BigInt  =
+  //  Security.addProvider(new BouncyCastleProvider)
+  def xrpChecksum(body: ByteVector): ByteVector =
+    sha256(sha256(body)).take(4)
+
+  /**
+    * This is equivalent to Ripple SHA512Half, it does SHA512 and returns first
+    * 32 bytes
+    */
+  def sha512Half(bytes: ByteVector): ByteVector = sha512(bytes).take(32)
+
+  /**
+    * Default Java SHA256, should be the same as BouncyCastle sha512BC function.
+    *
+    * @param bytes
+    * @return
+    *   64-byte SHA512 hash with no salt added.
+    */
+  def sha256(bytes: ByteVector): ByteVector = {
+    val array: Array[Byte] = MessageDigest.getInstance("SHA-256").digest(bytes.toArray)
+    ByteVector(array)
+  }
+
+  /**
+    * Default Java SHA512, should be the same as BouncyCastle sha512BC function.
+    *
+    * @param bytes
+    * @return
+    *   64-byte SHA512 hash with no salt added.
+    */
+  def sha512(bytes: ByteVector): ByteVector = {
+    // toIndexedSeq will do a copy, enforcing immutable
+    // unsafeArray  on  ArraySeq will not copy, and give the underlying mutable array
+    // toArray also does a copy since Seq is immutable
+    val array = MessageDigest.getInstance("SHA-512").digest(bytes.toArray)
+    ByteVector(array)
+  }
+
+  /**
+    * RipeMD160 digest/hash. Primarily used to convert PublicKey to AccountId
+    *
+    * @param bytes
+    *   Is this supposed to be the Hash of original bytes or raw bytes?
+    * @return
+    */
+  def ripemd160(bytes: ByteVector): ByteVector = {
+    val md = MessageDigest.getInstance("RIPEMD160")
+    ByteVector(md.digest(bytes.toArray))
+  }
+
+  /**
+    * Limits on size to 64 bits, throws. ByteVector is considered as unsigned
+    * bytes *
+    */
+  def unsignedBytesToBigInt(bv: ByteVector): BigInt =
     val fromBytes: BigInt = BigInt.apply(bv.toArray)
     val signedBig         = BigInt(1, bv.toArray)
     signedBig
@@ -53,21 +125,6 @@ trait XrpBinaryOps extends MyLogging with HashOps {
     * which now just delegates to these via TypeCode and FieldCode compares.
     */
   def fieldBitsCompare(bitsA: BitVector, bitsB: BitVector): Int = bitsA.compare(bitsB)
-
-  /**
-    * Given as a Public Key adds prefix and XRP checksum.
-    * @param publicKey
-    *   secp265k or ed25519 keys key, if ed25519 padded with 0xED
-    * @return
-    *   Ripple Account Address Base58 encoded with leading r and checksummed.
-    */
-  def accountPublicKey2address(publicKey: ByteVector): ByteVector = {
-    // Should start with ED if 32 byte  Ed25519
-    val accountId: ByteVector = HashOps.ripemd160(HashOps.sha256(publicKey))
-    val body                  = accountPrefix ++ accountId
-    body ++ HashOps.xrpChecksum(body) // Assume we checksum the prefix too, forget
-
-  }
 
   /**
     * This trims off the first *byte* and the last four checksum bytes from
@@ -86,7 +143,7 @@ trait XrpBinaryOps extends MyLogging with HashOps {
   inline def checksumRippleStyle(prefix: ByteVector, body: ByteVector): ByteVector = {
     // This is pure conversion, no family stuff. Adds s and checksum
     val chunk    = prefix ++ body
-    val checksum = HashOps.xrpChecksum(chunk)
+    val checksum = xrpChecksum(chunk)
     chunk ++ checksum
   }
 
@@ -128,6 +185,22 @@ trait XrpBinaryOps extends MyLogging with HashOps {
 
   import io.circe.*
   import cats.syntax.all.*
+
+  given Conversion[BitVector, ByteVector] = _.bytes
+  given Conversion[ByteVector, BitVector] = _.bits
+
+  extension (a: ByteVector)
+    def stripPrefix(u: ByteVector): ByteVector             = u.drop(1)
+    def stripChecksum(u: ByteVector): ByteVector           = u.dropRight(4)
+    def unwrappedPropertyHandler: ByteVector => ByteVector = stripPrefix.andThen(stripChecksum)
+
+    def base58Check(headerAndBody: ByteVector): ByteVector = headerAndBody ++ sha256(headerAndBody).take(4)
+
+  extension (a: BitVector)
+    def stripPrefix(u: BitVector): BitVector             = u.drop(1 * 8)
+    def stripChecksum(u: BitVector): BitVector           = u.dropRight(4 * 8)
+    def unwrappedPropertyHandler: Any                    = stripPrefix.andThen(stripChecksum)
+    def base58Check(headerAndBody: BitVector): BitVector = headerAndBody ++ sha256(headerAndBody).take(4).bits
 
 }
 

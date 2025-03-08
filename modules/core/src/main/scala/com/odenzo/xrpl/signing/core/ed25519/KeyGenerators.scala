@@ -19,7 +19,7 @@ import java.security.SecureRandom
   * KeyPair/Wallet from Seed or Private Key. And we should be able to generate a
   * random seed i guess for WalletPropose functionlity.
   */
-object Generators {
+object KeyGenerators {
 
   /**
     * Generates a totally random keypair for ED25519 I guess we could down-cast
@@ -43,46 +43,36 @@ object Generators {
     *
     * @param priv
     *   Array is needed to pass into Hash function, not modified
+    * @return
+    *   Bouncv Castle public and private key pair.
     */
-  def createKeyPairFromXrpSeed(seed: XrpSeed): AsymmetricCipherKeyPair = {
-    val rawPrivateKey: ByteVector               = HashOps.sha512Half(seed.asRawSeed)
-    val privateKey: Ed25519PrivateKeyParameters = new Ed25519PrivateKeyParameters(rawPrivateKey.toArray, 0)
-    val publicKey: Ed25519PublicKeyParameters   = privateKey.generatePublicKey()
-    new AsymmetricCipherKeyPair(publicKey, privateKey)
+  def createKeyPairFromXrpSeed(seed: XrpSeed): (Ed25519PublicKeyParameters, Ed25519PrivateKeyParameters) = {
+    val privateKey                                = derivePrivateKeyFromSeed(seed)
+    val privateKeyBC: Ed25519PrivateKeyParameters = privateKeyToBC(privateKey)
+    val publicKeyBC: Ed25519PublicKeyParameters   = privateKeyBC.generatePublicKey()
+    (publicKeyBC, privateKeyBC)
   }
 
   /** Given a 16 byte seed transform to 32 byte private key as bytevector */
-  def derivePrivateKeyFromSeed(seed: XrpSeed): ByteVector =
-    XrpBinaryOps.sha512Half(seed.asRawSeed)
+  inline def derivePrivateKeyFromSeed(seed: XrpSeed): ByteVector = XrpBinaryOps.sha512Half(seed.asRawSeed)
 
-  /** @return  32 byte public key without the 0xED in front. */
-  def derivePublicKeyFromPrivateKey(rawPrivateKey: ByteVector): ByteVector = {
-    val privateKey: Ed25519PrivateKeyParameters = new Ed25519PrivateKeyParameters(rawPrivateKey.toArray, 0)
-    val publicKey: Ed25519PublicKeyParameters   = privateKey.generatePublicKey()
-    ByteVector(publicKey.getEncoded)
-  }
+  inline def privateKeyToBC(privateKey: ByteVector): Ed25519PrivateKeyParameters =
+    new Ed25519PrivateKeyParameters(privateKey.toArray, 0)
 
-  /** Package a ByteVector (from ?? ) in the AccountPublicKey wrapper */
-  def publicKeyToAccountPublicKey(bv: ByteVector): AccountPublicKey = {
-    AccountPublicKey.fromBytesUnsafe(bv)
-  }
-}
+  inline def derivePublicKeyFromPrivateKeyBC(privateKeyBC: Ed25519PrivateKeyParameters): Ed25519PublicKeyParameters =
+    privateKeyBC.generatePublicKey()
 
-/**
-  * @param publicKeyParams
-  *   This must be the public key, to save external casting take more generic
-  *   type Ed25519PublicKeyParameters < AsymmetricKeyParameter Lets see if we
-  *   can make invariant and use Ed...KeyParameters TODO: Convert and return as
-  *   XrplPublicKey
-  * @return
-  *   THe public key, 33 bytes with ED prefix like Ripple does it
-  */
-def publicKey2XrplBytes(publicKeyParams: AsymmetricKeyParameter): ByteVector = {
-  val key = publicKeyParams.asInstanceOf[Ed25519PublicKeyParameters]
-  if key.isPrivate then throw IllegalArgumentException("JCA Expected PublicKey but was Private")
-  else hex"ED" ++ ByteVector(key.getEncoded)
+    /** @return  32 byte public key without the 0xED in front. */
+
+  inline def convertBcPublicKeyToModel(publicKey: Ed25519PublicKeyParameters): AccountPublicKey =
+    AccountPublicKey.fromBytesUnsafe(ByteVector(publicKey.getEncoded))
+
+  inline def convertBcPrivateKeyToModel(privateKeyBC: Ed25519PrivateKeyParameters): ByteVector =
+    ByteVector.apply(privateKeyBC.getEncoded)
 
 }
+
+// TODO: Where is the create account address for ED, or is it the same as for sepk
 
 /**
   * Given a full public key started with ed in hex then drop the ED header bytes

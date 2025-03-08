@@ -5,7 +5,7 @@ import com.tersesystems.blindsight.LoggerFactory
 import munit.*
 import scodec.bits.BitVector
 
-class XRPBase58Test extends munit.FunSuite with MyLogging {
+class XRPBase58FixTest extends munit.FunSuite with MyLogging {
   private val log    = LoggerFactory.getLogger
   // These all have checksum attached, Base64Checksum style
   val ACCOUNT_ZERO   = "rrrrrrrrrrrrrrrrrrrrrhoLvTp"

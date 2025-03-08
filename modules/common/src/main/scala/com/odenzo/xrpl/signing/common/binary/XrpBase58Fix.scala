@@ -9,7 +9,7 @@ import scala.annotation.tailrec
   * ByteVectors so have to do a `.bits` for the from as needed.
   *
   * No other code should *ever* use the built-in fromBase58/toBase58 for
-  * ByteBector or BitVector from scodec
+  * ByteBector or BitVector from scodec TODO: Example Code
   */
 object XrpBase58Fix {
   private val alphabet       = XrplBase58Alphabet
@@ -87,4 +87,27 @@ object XrpBase58Fix {
     }
 
   // Add the toXrpBase58 as extension to Bit and ByteVector, maybe but in XrpBinOps instead of here
+}
+
+import scodec.bits.Bases.Alphabet
+
+/**
+  * Scodec Bits Alphabet to user for XRP Base58. used with Scodec Bits and all
+  * the rest should be deleted. Not that we implement a new Alphabet
+  * XrpBase58Fix
+  */
+object XrplBase58Alphabet extends Alphabet {
+  val alphabet               = "rpshnaf39wBUDNEGHJKLM4PQRST7VWXYZ2bcdeCg65jkm8oFqi1tuvAxyz"
+  val chars: Array[Char]     = alphabet.toArray
+  val mapped: Map[Char, Int] = chars.zipWithIndex.toMap
+
+  override def toChar(i: Int): Char = chars(i)
+
+  override def toIndex(c: Char): Int = {
+    mapped.get(c) match
+      case Some(value) => value
+      case None        => throw new IllegalArgumentException(s"Illegal XRP Base58 Char: $c")
+  }
+
+  override def ignore(c: Char): Boolean = c.isWhitespace
 }
