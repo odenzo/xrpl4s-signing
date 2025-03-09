@@ -25,7 +25,7 @@ import scala.collection.immutable
   *
   * This is only applicable to secp256k1 key types.
   */
-object Generators extends MyLogging with XrpBinaryOps with Secp256k1Ops {
+object SecpKeyGenerators extends MyLogging with XrpBinaryOps with Secp256k1Ops {
   private val log = LoggerFactory.getLogger
   import Secp256k1Ops.Constants
 
@@ -48,7 +48,7 @@ object Generators extends MyLogging with XrpBinaryOps with Secp256k1Ops {
     * MasterKeyPair private, public. Private Key ever used directly or always
     * seed?
     */
-  def createKeyPairFromMasterSeed(seed: XrpSeed): XrpKeyPair = {
+  def createXrpKeyPair(seed: XrpSeed): XrpKeyPair = {
     val rootPrivateKey: ByteVector   = deriveRootPrivateKeyFromSeed(seed)
     val rootPublicKey                = deriveRootPublicKeyFromRootPrivateKey(rootPrivateKey)
     val intPrivateKey                = deriveIntermediatePrivateKey(rootPublicKey)

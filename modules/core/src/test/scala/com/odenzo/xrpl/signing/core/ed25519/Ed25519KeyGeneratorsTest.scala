@@ -16,7 +16,7 @@ import cats.syntax.all.given
   *   - MasterSeed and MasterSeedHex isomorphism tested elsewhere.
   *   - Passphrase to MasterSeedHex tested elsewhere.
   */
-class Ed25519KeyGeneratorTest extends WalletTestIOSpec {
+class Ed25519KeyGeneratorsTest extends WalletTestIOSpec {
 
   private val log = LoggerFactory.getLogger
 
