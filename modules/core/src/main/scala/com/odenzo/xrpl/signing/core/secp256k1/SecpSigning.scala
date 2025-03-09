@@ -4,7 +4,7 @@ import cats.*
 import cats.data.*
 import cats.implicits.*
 import com.odenzo.xrpl.signing.common.utils.MyLogging
-import SecpOps.privateKey2D
+import com.odenzo.xrpl.signing.core.secp256k1.SecpOps.privateKey2D
 import org.bouncycastle.asn1.sec.SECNamedCurves
 import org.bouncycastle.asn1.x9.X9ECParameters
 import org.bouncycastle.crypto.digests.SHA256Digest
@@ -26,7 +26,7 @@ import java.security.*
   * This is focussed just on getting Secp256k1 txnscenarios and Verification
   * Working. TODO: Trim this down to used functions
   */
-object Actions extends MyLogging {
+object SecpSigning extends MyLogging {
   import SecpOps.Constants
 
   /**
@@ -65,12 +65,13 @@ object Actions extends MyLogging {
     * @param secret
     *   The public/private keypair
     */
-  def sign(hash: ByteVector, secret: KeyPair) = {
+  def sign(hash: ByteVector, secret: KeyPair): ByteVector = {
 
     val kCalc: HMacDSAKCalculator = new HMacDSAKCalculator(new SHA256Digest)
-    val signer                    = new ECDSASigner(kCalc)
-    val d                         = privateKey2D(secret.getPrivate)
-    val privKeyParam              = new ECPrivateKeyParameters(d, Constants.domainParams)
+    val signer: ECDSASigner       = new ECDSASigner(kCalc)
+
+    val d            = privateKey2D(secret.getPrivate)
+    val privKeyParam = new ECPrivateKeyParameters(d, Constants.domainParams)
     signer.init(true, privKeyParam)
 
     val sigs               = signer.generateSignature(hash.toArray)

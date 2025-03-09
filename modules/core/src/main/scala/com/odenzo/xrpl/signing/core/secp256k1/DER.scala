@@ -30,7 +30,7 @@ object DER extends MyLogging with XrpBinaryOps {
     * false using secp256k1 curve
     */
   def checkIfSignatureCanonical(r: BigInteger, s: BigInteger): Boolean = {
-    val order: BigInteger = Secp256k1Ops.Constants.N_Order // This is N, is it always positive
+    val order: BigInteger = SecpOps.Constants.N_Order // This is N, is it always positive
     val invS: BigInteger  = order.subtract(s)
     // S should be less than invS
     (s.compareTo(invS) <= 0) // S > invS  then false

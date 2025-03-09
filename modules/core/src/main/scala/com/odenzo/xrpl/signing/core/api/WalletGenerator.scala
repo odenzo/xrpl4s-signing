@@ -1,20 +1,5 @@
-package com.odenzo.xrpl.signing.core.api
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-//package com.odenzo.ripple.signing.impl
+//package com.odenzo.xrpl.signing.core.api
+//
 //
 //import java.security.SecureRandom
 //import cats.*
@@ -22,28 +7,34 @@ package com.odenzo.xrpl.signing.core.api
 //import cats.implicits.*
 //import com.odenzo.xrpl.common.keys.KeyType
 //import com.odenzo.xrpl.common.utils.ELogging
+//import com.odenzo.xrpl.signing.core.ed25519.Ed25519KeyGenerators
+//import com.odenzo.xrpl.signing.core.models.XrpSeed
+//import com.odenzo.xrpl.signing.core.secp256k1.SecpKeyGenerators
 //import org.bouncycastle.crypto.AsymmetricCipherKeyPair
 //import scodec.bits.{BitVector, ByteVector}
 //
 //import java.nio.charset.StandardCharsets
+//import scala.util.Random
 //
 ///**
-//  * In Progress - this is the underlying thing to create a totally random wallet
-//  * and return something similar to wallet_propose result.
+//  * This is the Scala API that accepts various "master keys"  and returns the master_seed_hex, account_address_hex, public_key_hex
+// *
+// * The idea is to receive arbitrary message and not expose our internal domain models at all.
 //  */
 //object WalletGenerator extends ELogging {
 //
+//  val secureRandom: SecureRandom = new SecureRandom()
+//  val random: Random = new Random()
+//
 //  /**
-//    * This is the recommended method. It will generate an ed25519 set of keys.
-//    * It will not initialize the account (no initial deposit). All the rest of
-//    * the methods are for compatability for existing legacy use cases. Note:
-//    * ed25519 keys do not work with Payment Channels (yet?) according to Ripple
+//    * Generate a random wallet base on keyType = ed25519 or secp256k1.
 //    */
-//  def generateWallet(keytype: KeyType): Either[Any, Any] = {
-//      val seed = generateSeed()
+//  def generateWallet(keytype: String): Either[Any, Any] = {
+//      val passphrase: String = XrpSeed.randomPassphrase
+//
 //      keytype match {
-//        case ed25519   => generateEdKeys(seed)
-//        case secp256k1 => generateSecpKeys(seed)
+//        case "ed25519"   => Ed25519KeyGenerators.createXrpKeyPair(seed)
+//        case "secp256k1" => SecpKeyGenerators.createXrpKeyPair(seed)
 //      }
 //    }
 //  }

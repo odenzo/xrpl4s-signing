@@ -5,7 +5,7 @@ import cats.data.*
 import cats.implicits.*
 import com.odenzo.xrpl.signing.common.binary.XrpBinaryOps
 import com.odenzo.xrpl.signing.common.utils.MyLogging
-import Secp256k1Ops.Constants.params
+import SecpOps.Constants.params
 import cats.syntax.HashOps
 import com.odenzo.xrpl.signing.core.models.{ XrpKeyPair, XrpPrivateKey, XrpPublicKey, XrpSeed }
 import com.tersesystems.blindsight.LoggerFactory
@@ -25,9 +25,9 @@ import scala.collection.immutable
   *
   * This is only applicable to secp256k1 key types.
   */
-object SecpKeyGenerators extends MyLogging with XrpBinaryOps with Secp256k1Ops {
+object SecpKeyGenerators extends MyLogging  {
   private val log = LoggerFactory.getLogger
-  import Secp256k1Ops.Constants
+  import SecpOps.Constants
 
   /** The order of secp256k1 is the max value */
   protected val ZERO_KEY: ByteVector = Constants.zero32

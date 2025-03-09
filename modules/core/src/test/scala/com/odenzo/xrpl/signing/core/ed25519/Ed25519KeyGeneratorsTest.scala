@@ -4,7 +4,7 @@ import cats.effect.IO
 import com.odenzo.xrpl.signing.common.utils.MyLogging
 import com.odenzo.xrpl.signing.core.DeriveAccountAddress
 import com.odenzo.xrpl.signing.core.models.*
-import com.odenzo.xrpl.signing.core.seeds.{ RFC1751Keys, SeedOps }
+import com.odenzo.xrpl.signing.core.passphases.{ RFC1751Keys, PassphraseOps }
 import com.odenzo.xrpl.signing.testkit.WalletTestIOSpec
 import com.tersesystems.blindsight.LoggerFactory
 import scodec.bits.Bases.Alphabets

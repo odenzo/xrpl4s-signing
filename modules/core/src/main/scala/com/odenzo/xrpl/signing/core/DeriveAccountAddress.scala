@@ -21,12 +21,11 @@ object DeriveAccountAddress extends XrpBinaryOps {
     *   secp265k or ed25519 public keys, and operates on 33 bytes always, this
     *   includes the 0xED marker for Ed25519
     * @return
-    *   Ripple Account Address Base58 encoded with leading r and checksummed.
+    *   Ripple Account Address Base58 encoded with leading r and checksum.
     */
   def accountPublicKey2address(publicKey: XrpPublicKey): IO[AccountAddress] = {
-    import XrpPublicKey.* // Needed to get the extensions unfortunaltey, and its not named.
+    import XrpPublicKey.*
     val publicKeyBytes        = publicKey.asRawKey
-    assert(publicKeyBytes.size == 33L, "Public Key must be 33 bytes")
     val accountId: ByteVector = ripemd160(sha256(publicKeyBytes))
     val body: ByteVector      = accountPrefix ++ accountId
     val bytes: ByteVector     = body ++ xrpChecksum(body)

@@ -1,4 +1,4 @@
-package com.odenzo.xrpl.signing.core.seeds
+package com.odenzo.xrpl.signing.core.passphases
 
 import cats.implicits.*
 import RFC1751Keys.{ binaryToWord, wordToken2ByteVector }

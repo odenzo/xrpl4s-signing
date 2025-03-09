@@ -21,6 +21,7 @@ import java.security.SecureRandom
   * random seed i guess for WalletPropose functionlity.
   */
 object Ed25519KeyGenerators {
+  val secureRandom: SecureRandom = new SecureRandom()
 
   /**
     * Generates a totally random keypair for ED25519 I guess we could down-cast
@@ -28,11 +29,12 @@ object Ed25519KeyGenerators {
     *
     * Alot of redundancy here. What to we really need to do, derive a
     * KeyPair/Wallet from Seed or Private Key
+    *
+    * ANd want to have a passphrase too, which kind of restricts that.
     */
   def createRandomKeyPair(): AsymmetricCipherKeyPair = {
-    val RANDOM: SecureRandom            = new SecureRandom()
     val keygen: Ed25519KeyPairGenerator = new Ed25519KeyPairGenerator()
-    keygen.init(new Ed25519KeyGenerationParameters(RANDOM))
+    keygen.init(new Ed25519KeyGenerationParameters(secureRandom))
     val keyPair                         = keygen.generateKeyPair()
     keyPair
   }
